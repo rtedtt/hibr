@@ -94,117 +94,43 @@ a,button,label,.chip{touch-action:manipulation}
 .bb .btn{padding:8px 12px;font-size:13px}
 .err{color:#ff8a70;border:1px solid #ff8a7066;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
 .btn.sm{padding:6px 14px;font-size:13px;font-weight:600}
-
-/* ستايل نافذة تسجيل الدخول */
-.modal{position:fixed;inset:0;background:#0e1020dd;z-index:99;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(5px)}
-.modal.on{display:flex}
-.mbox{background:var(--pn);padding:24px;border-radius:16px;width:100%;max-width:360px;border:1px solid var(--ln)}
-.mbox h3{margin-top:0;margin-bottom:16px}
 </style>
 </head>
 <body>
 <header class="top"><a class="logo" href="#/">حِبر</a><a class="ib" href="#/x" aria-label="بحث"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a></header>
 <main id="app"></main>
 <nav class="tabs" id="tabs"></nav>
-
-<div id="auth-modal" class="modal">
-  <div class="mbox">
-    <h3 id="auth-title">تسجيل الدخول</h3>
-    <input class="s" id="auth-email" type="email" placeholder="البريد الإلكتروني">
-    <input class="s" id="auth-pass" type="password" placeholder="كلمة المرور">
-    <input type="hidden" id="auth-type" value="user">
-    <label style="display:flex; gap:8px; margin-bottom:16px; color:var(--mu); font-size:13px; cursor:pointer">
-      <input type="checkbox" id="auth-isreg"> إنشاء حساب جديد بدلاً من الدخول
-    </label>
-    <div class="acts">
-      <button class="btn" data-act="submitAuth">تأكيد</button>
-      <button class="btn g" data-act="closeModal">إلغاء</button>
-    </div>
-  </div>
-</div>
-
 <div id="toast" role="status"></div>
-
-<!-- استخدام type="module" لتمكين Firebase -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-import { getFirestore, collection, getDocs, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
-
-/* ===== إعدادات Firebase (ضع بياناتك هنا لاحقاً) ===== */
-const firebaseConfig = {
-  apiKey: "ضع_مفتاحك_هنا",
-  authDomain: "project-id.firebaseapp.com",
-  projectId: "project-id",
-  storageBucket: "project-id.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef"
-};
-
-let app, auth, db;
-try {
-  // تفعيل فايربيس فقط لو قمت بتعديل الـ apiKey
-  if(firebaseConfig.apiKey !== "ضع_مفتاحك_هنا") {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-  }
-} catch(e) { console.error("Firebase init:", e); }
-
-
-/* ===== بيانات تجريبية (Fallback) ===== */
-const mockW=[
-["ظلّ الفجر",["أكشن","فانتازيا"],4.9,2400000,"فريق الغروب",28,"في مدينة لا تشرق عليها الشمس منذ مئة عام، يكتشف صبي ورث سيفاً قديماً أن ظله يتحرك وحده.",12],
-["مدينة الأجراس",["غموض","دراما"],4.7,1850000,"حبر الليل",212,"كلما رنّ جرس في المدينة اختفى شخص. تتبع محققة شابة الأصوات حتى برج لا يظهر على خريطة.",210],
-["قهوة ما بعد المطر",["رومانسي","حياة يومية"],4.8,3100000,"سكّر زيادة",20,"مقهى صغير لا يفتح إلا حين تمطر. يلتقي فيه نادل خجول وكاتبة فقدت إلهامها.",340],
-["حارس البوصلة",["مغامرة","فانتازيا"],4.6,1200000,"فريق الغروب",31,"بوصلة لا تشير إلى الشمال بل إلى ما تتمناه. يبحر بها طاقم صغير نحو جزيرة تختفي.",190],
-["آخر رحلة للمريخ",["خيال علمي","دراما"],4.8,2750000,"محطة ٧",42,"قبل إغلاق آخر ممر إلى المريخ، يصعد عشرة غرباء إلى المركبة نفسها.",265],
-["بوابة الألف باب",["فانتازيا","غموض"],4.9,3400000,"محطة ٧",97,"في قصر بألف باب، كل باب يفتح على عالم. وحارسة صغيرة تحمل المفتاح الوحيد.",255]
+<script>
+/* ===== بيانات تجريبية (كلها أعمال وصور أصلية مولّدة بالكود) ===== */
+const W=[
+["ظلّ الفجر",["أكشن","فانتازيا"],4.9,2400000,"فريق الغروب",28,"في مدينة لا تشرق عليها الشمس منذ مئة عام، يكتشف صبي ورث سيفاً قديماً أن ظله يتحرك وحده. وللحقيقة التي يخفيها الظل ثمن لا يريد أحد دفعه.",12],
+["مدينة الأجراس",["غموض","دراما"],4.7,1850000,"حبر الليل",212,"كلما رنّ جرس في المدينة اختفى شخص. تتبع محققة شابة الأصوات حتى برج لا يظهر على أي خريطة.",210],
+["قهوة ما بعد المطر",["رومانسي","حياة يومية"],4.8,3100000,"سكّر زيادة",20,"مقهى صغير لا يفتح إلا حين تمطر. يلتقي فيه نادل خجول وكاتبة فقدت إلهامها، وتتغير حياتهما معاً بكوب واحد.",340],
+["حارس البوصلة",["مغامرة","فانتازيا"],4.6,1200000,"فريق الغروب",31,"بوصلة لا تشير إلى الشمال بل إلى ما تتمناه. يبحر بها طاقم صغير نحو جزيرة تختفي كلما اقتربوا منها.",190],
+["آخر رحلة للمريخ",["خيال علمي","دراما"],4.8,2750000,"محطة ٧",42,"قبل إغلاق آخر ممر إلى المريخ، يصعد عشرة غرباء إلى المركبة نفسها. لكل منهم سبب للهروب من الأرض، ولا أحد يقول الحقيقة.",265],
+["مدرسة الأرواح الصغيرة",["كوميدي","خارق"],4.5,980000,"شاي بالنعناع",65,"تقبل المدرسة الجديدة الأرواح الضائعة فقط. وأول طالب بشري فيها يتنكر ليصير مدرّسهم الجديد.",100],
+["سيف الغروب",["أكشن","تاريخي"],4.7,1600000,"حبر الليل",54,"في زمن الممالك المتحاربة، حداد عجوز يصنع سيفاً أخيراً، ويصير سره سبباً لحرب لا يريدها.",355],
+["نادي الأحلام المنسية",["دراما","رومانسي"],4.6,870000,"سكّر زيادة",18,"نادٍ مدرسي يجمع الأحلام التي تخلى عنها أصحابها. وحين تطلب فتاة استعادة حلمها يكتشف الأعضاء ما ضاع منهم هم أيضاً.",300],
+["بوابة الألف باب",["فانتازيا","غموض"],4.9,3400000,"محطة ٧",97,"في قصر بألف باب، كل باب يفتح على عالم. وحارسة صغيرة تحمل المفتاح الوحيد الذي لا يعمل إلا مرة واحدة.",255],
+["طاهي السماء",["كوميدي","حياة يومية"],4.4,640000,"شاي بالنعناع",37,"مطعم يطير فوق الغيوم، وطاهيه يحاول إرضاء زبائن لا يأكلون إلا ما لم يُطبخ بعد.",45]
 ].map((a,i)=>({id:i,t:a[0],g:a[1],r:a[2],v:a[3],tm:a[4],n:a[5],s:a[6],h:a[7],d:(i*2)%9}));
-
-let W = [...mockW]; 
 const G=[...new Set(W.flatMap(w=>w.g))];
 
-const $=s=>document.querySelector(s),app_div=$('#app');
+const $=s=>document.querySelector(s),app=$('#app');
 const nf=n=>n.toLocaleString('ar-EG');
 const ago=d=>d<=0?'اليوم':d==1?'أمس':'قبل '+nf(d)+' يوم';
 const vw=n=>n>=1e6?nf(+(n/1e6).toFixed(1))+' مليون':nf(Math.round(n/1e3))+' ألف';
-let st={fav:[1,4],pr:{0:{c:12,p:60},3:{c:5,p:30}}};
+let st={fav:[1,6],pr:{0:{c:12,p:60},3:{c:5,p:30},4:{c:21,p:85}}};
 try{const s=JSON.parse(localStorage.getItem('hibr'));if(s)st=s}catch(e){}
 const save=()=>{try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}};
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),m.length>40?5000:2600)};
 const U=s=>'data:image/svg+xml,'+encodeURIComponent(s);
 const X='xmlns="http://www.w3.org/2000/svg"';
 
-/* جلب البيانات الحقيقية من فايربيس (إن وُجدت) */
-async function fetchManga() {
-  if(!db) return; // استخدام الـ Mock data لو مفيش فايربيس
-  try {
-    const snap = await getDocs(collection(db, 'manga'));
-    if(!snap.empty) {
-       W = snap.docs.map(d => ({id: d.id, ...d.data()}));
-       route(); // تحديث الواجهة
-    }
-  } catch(e) { console.error("Fetch err:", e); }
-}
-
-/* الاستماع لحالة تسجيل الدخول */
-if(auth) {
-  onAuthStateChanged(auth, async (user) => {
-    if(user) {
-      const snap = await getDoc(doc(db, 'users', user.uid));
-      st.role = snap.exists() ? snap.data().role : 'user';
-      st.uid = user.uid;
-    } else {
-      st.role = ''; st.uid = null;
-    }
-    save(); tabs(); if(cur === '#/u' || cur === '#/a') route();
-  });
-}
-
 /* غلاف أصلي مولّد */
 const CV={};
-function C(w){return CV[w.id]||(CV[w.id]=(()=>{const h=w.h||100,i=String(w.id).charCodeAt(0)||0;
+function C(w){return CV[w.id]||(CV[w.id]=(()=>{const h=w.h,i=w.id;
 let s=`<svg ${X} viewBox="0 0 300 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} 70% 40%)"/><stop offset="1" stop-color="hsl(${(h+60)%360} 70% 12%)"/></linearGradient></defs><rect width="300" height="400" fill="url(#g)"/>`;
 for(let k=0;k<5;k++)s+=`<circle cx="${(i*53+k*97)%300}" cy="${(i*31+k*131)%400}" r="${30+((i+k)*29)%90}" fill="hsl(${h+k*20} 80% ${50+k*4}%)" opacity=".16"/>`;
 s+=`<path d="M-20 ${250+i*9}L320 ${110+i*5}L320 ${160+i*5}L-20 ${310+i*9}Z" fill="#fff" opacity=".09"/>`;
@@ -214,8 +140,8 @@ L.forEach((x,k)=>s+=`<text x="150" y="${235+k*(fs+8)}" font-size="${fs}" font-we
 s+=`<rect y="335" width="300" height="65" fill="#000" opacity=".35"/><text x="150" y="374" font-size="16" text-anchor="middle" fill="#ffffffcc">${w.tm}</text></svg>`;
 return U(s)})())}
 
-/* صفحة فصل تجريبية */
-function PG(w,c,p){const h=w.h||100;
+/* صفحة فصل تجريبية أصلية */
+function PG(w,c,p){const h=w.h;
 const R=[[[30,30,740,420],[30,470,360,340],[410,470,360,340],[30,830,740,340]],[[30,30,360,560],[410,30,360,270],[410,320,360,270],[30,610,740,560]],[[30,30,740,300],[30,350,740,420],[30,790,360,380],[410,790,360,380]]][p%3];
 let s=`<svg ${X} viewBox="0 0 800 1200"><defs><pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2.2" fill="#1a1a24"/></pattern></defs><rect width="800" height="1200" fill="#f5f2ea"/>`;
 R.forEach(([x,y,a,b],k)=>{const m=(k+p+c)%4,cx=a/2,cy=b/2;
@@ -227,37 +153,68 @@ if(m==3)q+=`<rect y="${b*.6}" width="${a}" height="${b*.4}" fill="url(#d)" opaci
 s+=`<svg x="${x}" y="${y}" width="${a}" height="${b}">${q}</svg><rect x="${x}" y="${y}" width="${a}" height="${b}" fill="none" stroke="#0c0d16" stroke-width="6"/>`});
 return U(s+'</svg>')}
 
-const card=(w,nw)=>`<a class="card" href="#/m/${w.id}">${nw?'<i class="nw">جديد</i>':''}<img loading="lazy" src="${C(w)}" alt=""><b>${w.t}</b><span>${w.g.join('، ')}</span>${nw?`<span>الفصل ${nf(w.n||1)}</span>`:''}</a>`;
+/* قطع واجهة */
+const card=(w,nw)=>`<a class="card" href="#/m/${w.id}">${nw?'<i class="nw">جديد</i>':''}<img loading="lazy" src="${C(w)}" alt=""><b>${w.t}</b><span>${w.g.join('، ')}</span>${nw?`<span>الفصل ${nf(w.n)}، ${ago(w.d)}</span>`:''}</a>`;
 const back=`<svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>`;
 const chips=g=>`<div class="chips">${g.map(x=>`<span class="chip">${x}</span>`).join('')}</div>`;
 
-function home(){const f=W.length > 5 ? W[5] : W[0]; const pop=[...W].sort((a,b)=>(b.v||0)-(a.v||0)).slice(0,5),lt=[...W].sort((a,b)=>(a.d||0)-(b.d||0)).slice(0,6);
-const cont=Object.keys(st.pr).map(k=>[W.find(w=>w.id==k),st.pr[k]]).filter(x=>x[0]);
-app_div.innerHTML=`<a class="feat" href="#/m/${f.id}"><div class="bg" style="background-image:url('${C(f)}')"></div><div class="in"><img src="${C(f)}" alt=""><div><span class="mu">عمل الأسبوع</span><h1>${f.t}</h1>${chips(f.g)}<span class="btn">ابدأ القراءة</span></div></div></a>
+/* الصفحات */
+function home(){const f=W[8],pop=[...W].sort((a,b)=>b.v-a.v).slice(0,5),lt=[...W].sort((a,b)=>a.d-b.d).slice(0,6);
+const cont=Object.keys(st.pr).map(k=>[W[+k],st.pr[k]]);
+app.innerHTML=`<a class="feat" href="#/m/${f.id}"><div class="bg" style="background-image:url('${C(f)}')"></div><div class="in"><img src="${C(f)}" alt=""><div><span class="mu">عمل الأسبوع</span><h1>${f.t}</h1>${chips(f.g)}<span class="btn">ابدأ القراءة</span></div></div></a>
 ${cont.length?`<h2>استكمل القراءة</h2><div class="row">${cont.map(([w,p])=>`<a class="cont" href="#/r/${w.id}/${p.c}"><img src="${C(w)}" alt=""><div><b>${w.t}</b><small class="mu">الفصل ${nf(p.c)}</small><div class="bar"><i style="width:${p.p}%"></i></div></div></a>`).join('')}</div>`:''}
-<h2>أحدث الأعمال</h2><div class="grid">${lt.map(w=>card(w,1)).join('')}</div>
-<h2>أشهر المانغا</h2>${pop.map((w,i)=>`<a class="rk" href="#/m/${w.id}"><em>${nf(i+1)}</em><img src="${C(w)}" alt=""><div><b>${w.t}</b><small>${w.g.join('، ')}</small></div><small>${vw(w.v||0)} مشاهدة</small></a>`).join('')}`;
+<h2>أحدث الأعمال <small>حُدّثت مؤخراً</small></h2><div class="grid">${lt.map(w=>card(w,1)).join('')}</div>
+<h2>أشهر المانغا</h2>${pop.map((w,i)=>`<a class="rk" href="#/m/${w.id}"><em>${nf(i+1)}</em><img src="${C(w)}" alt=""><div><b>${w.t}</b><small>${w.g.join('، ')}</small></div><small>${vw(w.v)} مشاهدة</small></a>`).join('')}`;
 }
 
-function detail(id){const w=W.find(x=>x.id==id); if(!w) return go('#/'); const p=st.pr[id],fav=st.fav.includes(id),cs=[...Array(w.n||1)].map((_,i)=>(w.n||1)-i);
-app_div.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(w)}')"></div><a class="ib" style="position:relative;margin-bottom:12px" href="${lastTab}" aria-label="رجوع">${back}</a>
-<div class="in"><img src="${C(w)}" alt=""><div><h1>${w.t}</h1><p class="mu">ترجمة: ${w.tm}</p><p>★ ${nf(w.r||5)} · ${vw(w.v||0)} مشاهدة</p>${chips(w.g)}<span class="mu">مستمرة · ${nf(w.n||1)} فصل</span></div></div></div>
+function detail(id){const w=W[id],p=st.pr[id],fav=st.fav.includes(+id),cs=[...Array(w.n)].map((_,i)=>w.n-i);
+app.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(w)}')"></div><a class="ib" style="position:relative;margin-bottom:12px" href="${lastTab}" aria-label="رجوع">${back}</a>
+<div class="in"><img src="${C(w)}" alt=""><div><h1>${w.t}</h1><p class="mu">ترجمة: ${w.tm}</p><p>★ ${nf(w.r)} · ${vw(w.v)} مشاهدة</p>${chips(w.g)}<span class="mu">مستمرة · ${nf(w.n)} فصل</span></div></div></div>
 <div class="acts"><a class="btn" href="#/r/${id}/${p?p.c:1}">${p?'تابع الفصل '+nf(p.c):'ابدأ القراءة'}</a><button class="btn g" data-act="fav" data-id="${id}" aria-label="المفضلة">${fav?'♥ في المكتبة':'♡ أضف للمكتبة'}</button></div>
 <h2>القصة</h2><p class="story">${w.s}</p>
-<h2>الفصول</h2>${cs.map(c=>`<a class="ch ${p&&c<p.c?'rd':''}" href="#/r/${id}/${c}"><b>الفصل ${nf(c)}</b></a>`).join('')}`;
+<h2>الفصول <small>${nf(w.n)} فصل</small></h2>${cs.map(c=>`<a class="ch ${p&&c<p.c?'rd':''}" href="#/r/${id}/${c}"><b>الفصل ${nf(c)}</b><small>${ago(w.d+(w.n-c)*6)}</small></a>`).join('')}`;
 }
 
-function reader(id,c){const w=W.find(x=>x.id==id); c=+c; st.pr[id]={c,p:5}; save(); document.body.classList.add('rdr');
+function reader(id,c){const w=W[id];c=+c;st.pr[id]={c,p:5};save();document.body.classList.add('rdr');
 const pv=c>1?`<a class="btn g" href="#/r/${id}/${c-1}">السابق</a>`:'',nx=c<w.n?`<a class="btn" href="#/r/${id}/${c+1}">الفصل التالي</a>`:'';
-app_div.innerHTML=`<div class="rbar"><a class="ib" href="#/m/${id}" aria-label="رجوع">${back}</a><b>${w.t} – الفصل ${nf(c)}</b></div>
+app.innerHTML=`<div class="rbar"><a class="ib" href="#/m/${id}" aria-label="رجوع">${back}</a><b>${w.t} – الفصل ${nf(c)}</b></div>
 <div class="rd">${[0,1,2,3,4,5].map(p=>`<img loading="lazy" src="${PG(w,c,p)}" alt="">`).join('')}</div>
 <div class="end"><p class="mu">نهاية الفصل ${nf(c)} (صفحات تجريبية)</p><div class="acts">${pv}${nx}</div><a class="mu" href="#/m/${id}">العودة إلى صفحة العمل</a></div>`;
-window.onscroll=()=>{const p=Math.min(100,Math.round(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)||5);st.pr[id].p=p;save()};
+onscroll=()=>{const p=Math.min(100,Math.round(scrollY/(document.body.scrollHeight-innerHeight)*100)||5);st.pr[id].p=p;save()};
 }
 
 function explore(){let q='',g='';
 const draw=()=>{const r=W.filter(w=>(!g||w.g.includes(g))&&(!q||w.t.includes(q)));
-$('#res').innerHTML=r.length?r.map(w=>card(w)).join(''):'<p class="empty">لا توجد نتائج.</p>'};
-app_div.innerHTML=`<input class="s" id="q" placeholder="ابحث عن عمل" type="search"><div class="chips" id="gs"><button class="chip on" data-g="">الكل</button>${G.map(x=>`<button class="chip" data-g="${x}">${x}</button>`).join('')}</div><div class="grid" id="res" style="margin-top:14px"></div>`;
+$('#res').innerHTML=r.length?r.map(w=>card(w)).join(''):'<p class="empty">لا توجد نتائج. جرّب كلمة أخرى أو تصنيفاً مختلفاً.</p>'};
+app.innerHTML=`<input class="s" id="q" placeholder="ابحث عن عمل" type="search"><div class="chips" id="gs"><button class="chip on" data-g="">الكل</button>${G.map(x=>`<button class="chip" data-g="${x}">${x}</button>`).join('')}</div><div class="grid" id="res" style="margin-top:14px"></div>`;
 $('#q').oninput=e=>{q=e.target.value.trim();draw()};
-$('#gs').onclick=e=>{const b=e.target.closest('button');if(!b)return;g=b.dataset.g;document.querySelectorAll('#gs .c
+$('#gs').onclick=e=>{const b=e.target.closest('button');if(!b)return;g=b.dataset.g;document.querySelectorAll('#gs .chip').forEach(x=>x.classList.toggle('on',x===b));draw()};draw();
+}
+
+function lib(){const f=st.fav.map(i=>W[i]);
+app.innerHTML=`<h2 style="margin-top:6px">مكتبتي <small>${nf(f.length)} عمل</small></h2>${f.length?`<div class="grid">${f.map(w=>card(w)).join('')}</div>`:'<p class="empty">مكتبتك فارغة. افتح أي عمل واضغط على أضف للمكتبة.</p>'}`}
+
+/* ===== كشف الفقاعات (معالجة محلية داخل المتصفح) ===== */
+function flood(g,W,H,lab,q,s,mn,mx){let h=0,t=0,x0=W,x1=0,y0=H,y1=0,b=0;q[t++]=s;lab[s]=1;
+while(h<t){const p=q[h++],x=p%W,y=(p-x)/W;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;if(!x||!y||x===W-1||y===H-1)b=1;
+if(x>0&&g[p-1]&&!lab[p-1]){lab[p-1]=1;q[t++]=p-1}
+if(x<W-1&&g[p+1]&&!lab[p+1]){lab[p+1]=1;q[t++]=p+1}
+if(y>0&&g[p-W]&&!lab[p-W]){lab[p-W]=1;q[t++]=p-W}
+if(y<H-1&&g[p+W]&&!lab[p+W]){lab[p+W]=1;q[t++]=p+W}}
+return{q:t>=mn&&t<=mx?q.slice(0,t):null,x0,x1,y0,y1,b,a:t}}
+function shape(f,W){const bw=f.x1-f.x0+1,bh=f.y1-f.y0+1,rm=new Int32Array(bh).fill(1e9),rM=new Int32Array(bh).fill(-1),cm=new Int32Array(bw).fill(1e9),cM=new Int32Array(bw).fill(-1);
+for(const p of f.q){const x=p%W-f.x0,y=((p/W)|0)-f.y0;if(x<rm[y])rm[y]=x;if(x>rM[y])rM[y]=x;if(y<cm[x])cm[x]=y;if(y>cM[x])cM[x]=y}
+const m=new Uint8Array(bw*bh);let n=0;
+for(let y=0;y<bh;y++)for(let x=0;x<bw;x++)if(x>=rm[y]&&x<=rM[y]&&y>=cm[x]&&y<=cM[x]){m[y*bw+x]=1;n++}
+return{x:f.x0,y:f.y0,w:bw,h:bh,m,n,a:f.a,t:''}}
+function detect({g,W,H}){const lab=new Uint8Array(W*H),q=new Int32Array(W*H),o=[];
+for(let s=0;s<W*H;s++){if(!g[s]||lab[s])continue;const f=flood(g,W,H,lab,q,s,W*H*.004,W*H*.2);if(!f.q||f.b)continue;
+const bw=f.x1-f.x0+1,bh=f.y1-f.y0+1,rt=bw/bh;if(rt<.25||rt>4||f.a/(bw*bh)<.4)continue;
+const sh=shape(f,W),hl=(sh.n-sh.a)/sh.n;if(hl>.015&&hl<.65)o.push(sh)}
+return o.sort((a,b)=>Math.abs(a.y-b.y)>H*.08?a.y-b.y:(b.x+b.w)-(a.x+a.w))}
+/* ===== التنقل والأحداث ===== */
+let cur='',lastTab='#/';
+const A={};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function tabs(){const ad=st.role==='admin';
+$('#tabs').innerH
