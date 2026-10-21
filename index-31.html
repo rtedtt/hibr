@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e1020">
+<title>حِبر – مانغا ومانهوا</title>
+<style>
+:root{--bg:#0e1020;--pn:#171a30;--ln:#262a47;--tx:#eceef8;--mu:#8d92b3;--ac:#f2b544;--ok:#4cc38a}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--tx);font:400 15px/1.7 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;color:inherit;background:none}
+.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top)) 16px 10px;background:#0e1020ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.logo{font-weight:800;font-size:26px;color:var(--ac)}
+.ib{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--pn)}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+main{max-width:720px;margin:0 auto;padding:16px 16px calc(90px + env(safe-area-inset-bottom))}
+h2{font-size:18px;margin:26px 0 12px;display:flex;justify-content:space-between;align-items:baseline}
+h2 small{font-size:13px;color:var(--mu);font-weight:400}
+.mu{color:var(--mu)}
+.feat{position:relative;border-radius:18px;overflow:hidden;min-height:250px;display:flex;align-items:flex-end;padding:18px;background:var(--pn)}
+.feat .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.45);transform:scale(1.3)}
+.feat .in{position:relative;display:flex;gap:16px;align-items:flex-end;width:100%}
+.feat img{width:118px;border-radius:10px;box-shadow:0 10px 30px #0008}
+.feat h1{font-size:26px;line-height:1.3;margin:4px 0 6px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0}
+.chip{font-size:12px;padding:2px 11px;border-radius:20px;border:1px solid var(--ln);background:#ffffff0d;color:var(--tx)}
+.chip.on{background:var(--ac);color:#1b1608;border-color:var(--ac);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--ac);color:#1b1608;font-weight:700;padding:9px 20px;border-radius:10px}
+.btn.g{background:var(--pn);color:var(--tx);border:1px solid var(--ln)}
+.row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.row>*{scroll-snap-align:start;flex:0 0 auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.card{display:block;position:relative;min-width:0}
+.card img{width:100%;aspect-ratio:3/4;border-radius:10px;display:block;background:var(--pn)}
+.card b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:ellipsis;word-break:break-word;font-size:14px;margin-top:6px;line-height:1.4}
+.card span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:var(--mu);display:block}
+.card .nw{position:absolute;top:8px;right:8px;background:var(--ac);color:#1b1608;font-size:11px;font-weight:700;padding:0 8px;border-radius:6px}
+.cont{width:260px;display:flex;gap:10px;background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:10px}
+.cont img{width:56px;border-radius:6px;aspect-ratio:3/4}
+.cont div{flex:1;min-width:0}
+.cont b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{height:5px;border-radius:5px;background:var(--ln);margin-top:8px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ac)}
+.rk{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--ln)}
+.rk em{font-style:normal;font-size:30px;font-weight:800;color:var(--ln);width:34px;text-align:center}
+.rk:nth-child(-n+3) em{color:var(--ac)}
+.rk img{width:52px;border-radius:6px;aspect-ratio:3/4}
+.rk div{flex:1}
+.rk b{display:block}.rk small{color:var(--mu)}
+.dt{position:relative;margin:-16px -16px 0;padding:16px;overflow:hidden}
+.dt .bg{position:absolute;inset:0;background-size:cover;filter:blur(26px) brightness(.4);transform:scale(1.3)}
+.dt .in{position:relative;display:flex;gap:16px}
+.dt img{width:130px;border-radius:12px;align-self:flex-start;box-shadow:0 10px 30px #0008}
+.dt h1{font-size:24px;line-height:1.3}
+.acts{display:flex;gap:10px;margin:16px 0}
+.acts .btn{flex:1;justify-content:center}
+.story{white-space:pre-line;color:#c9cce3}
+.ch{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--pn);border:1px solid var(--ln);border-radius:10px;margin-bottom:8px}
+.ch.rd{opacity:.55}
+.ch small{color:var(--mu)}
+input.s{width:100%;background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:11px 14px;color:var(--tx);font:inherit;margin-bottom:10px}
+.tabs{position:fixed;bottom:0;left:0;right:0;z-index:6;display:flex;background:#12152a;border-top:1px solid var(--ln);padding-bottom:env(safe-area-inset-bottom)}
+.tabs a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0;font-size:11px;color:var(--mu)}
+.tabs a.on{color:var(--ac)}
+body.rdr .tabs,body.rdr .top{display:none}
+body.rdr main{padding:0 0 30px;max-width:780px}
+.rbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:10px;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;background:#0e1020f2;border-bottom:1px solid var(--ln)}
+.rbar b{flex:1;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rd img{width:100%;display:block}
+.end{text-align:center;padding:24px 16px}
+.end .acts{justify-content:center}
+.pf{background:var(--pn);border:1px solid var(--ln);border-radius:16px;padding:20px;text-align:center}
+.av{width:72px;height:72px;border-radius:50%;background:var(--ln);margin:0 auto 10px;display:grid;place-items:center;font-size:30px}
+.empty{text-align:center;color:var(--mu);padding:40px 10px}
+#toast{position:fixed;bottom:calc(80px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--pn);border:1px solid var(--ac);padding:10px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:9;width:max-content;max-width:90%;text-align:center}
+#toast.on{opacity:1}
+:focus-visible{outline:2px solid var(--ac)}
+a,button,label,.chip{touch-action:manipulation}
+.tabs a{min-height:54px;justify-content:center}
+.stp{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.stp span{font-size:13px;padding:4px 12px;border-radius:20px;border:1px solid var(--ln);color:var(--mu)}
+.stp .ok{color:var(--ok);border-color:var(--ok)}.stp .go{color:var(--ac);border-color:var(--ac)}
+.seg{display:flex;background:var(--pn);border-radius:10px;padding:3px;margin:14px 0 10px}
+.seg button{flex:1;padding:8px 0;border-radius:8px;font-size:13px;color:var(--mu)}
+.seg .on{background:var(--ac);color:#1b1608;font-weight:700}
+.cvw{border-radius:10px;overflow:hidden;border:1px solid var(--ln)}
+.cvw canvas{width:100%;display:block}
+.bb{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
+.bb span{width:26px;height:26px;border-radius:50%;background:var(--ac);color:#1b1608;font-weight:700;display:grid;place-items:center;font-size:13px;flex:0 0 auto;margin-top:6px}
+.bb textarea{flex:1;background:var(--pn);border:1px solid var(--ln);border-radius:10px;color:var(--tx);font:inherit;padding:8px 10px}
+.bb .btn{padding:8px 12px;font-size:13px}
+.err{color:#ff8a70;border:1px solid #ff8a7066;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
+.btn.sm{padding:6px 14px;font-size:13px;font-weight:600}
+
+/* ستايل نافذة تسجيل الدخول */
+.modal{position:fixed;inset:0;background:#0e1020dd;z-index:99;display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(5px)}
+.modal.on{display:flex}
+.mbox{background:var(--pn);padding:24px;border-radius:16px;width:100%;max-width:360px;border:1px solid var(--ln)}
+.mbox h3{margin-top:0;margin-bottom:16px}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="#/">حِبر</a><a class="ib" href="#/x" aria-label="بحث"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a></header>
+<main id="app"></main>
+<nav class="tabs" id="tabs"></nav>
+
+<div id="auth-modal" class="modal">
+  <div class="mbox">
+    <h3 id="auth-title">تسجيل الدخول</h3>
+    <input class="s" id="auth-email" type="email" placeholder="البريد الإلكتروني">
+    <input class="s" id="auth-pass" type="password" placeholder="كلمة المرور">
+    <input type="hidden" id="auth-type" value="user">
+    <label style="display:flex; gap:8px; margin-bottom:16px; color:var(--mu); font-size:13px; cursor:pointer">
+      <input type="checkbox" id="auth-isreg"> إنشاء حساب جديد بدلاً من الدخول
+    </label>
+    <div class="acts">
+      <button class="btn" data-act="submitAuth">تأكيد</button>
+      <button class="btn g" data-act="closeModal">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
+
+<!-- استخدام type="module" لتمكين Firebase -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+import { getFirestore, collection, getDocs, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+/* ===== إعدادات Firebase (ضع بياناتك هنا لاحقاً) ===== */
+const firebaseConfig = {
+  apiKey: "ضع_مفتاحك_هنا",
+  authDomain: "project-id.firebaseapp.com",
+  projectId: "project-id",
+  storageBucket: "project-id.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdef"
+};
+
+let app, auth, db;
+try {
+  // تفعيل فايربيس فقط لو قمت بتعديل الـ apiKey
+  if(firebaseConfig.apiKey !== "ضع_مفتاحك_هنا") {
+    app = initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+  }
+} catch(e) { console.error("Firebase init:", e); }
+
+
+/* ===== بيانات تجريبية (Fallback) ===== */
+const mockW=[
+["ظلّ الفجر",["أكشن","فانتازيا"],4.9,2400000,"فريق الغروب",28,"في مدينة لا تشرق عليها الشمس منذ مئة عام، يكتشف صبي ورث سيفاً قديماً أن ظله يتحرك وحده.",12],
+["مدينة الأجراس",["غموض","دراما"],4.7,1850000,"حبر الليل",212,"كلما رنّ جرس في المدينة اختفى شخص. تتبع محققة شابة الأصوات حتى برج لا يظهر على خريطة.",210],
+["قهوة ما بعد المطر",["رومانسي","حياة يومية"],4.8,3100000,"سكّر زيادة",20,"مقهى صغير لا يفتح إلا حين تمطر. يلتقي فيه نادل خجول وكاتبة فقدت إلهامها.",340],
+["حارس البوصلة",["مغامرة","فانتازيا"],4.6,1200000,"فريق الغروب",31,"بوصلة لا تشير إلى الشمال بل إلى ما تتمناه. يبحر بها طاقم صغير نحو جزيرة تختفي.",190],
+["آخر رحلة للمريخ",["خيال علمي","دراما"],4.8,2750000,"محطة ٧",42,"قبل إغلاق آخر ممر إلى المريخ، يصعد عشرة غرباء إلى المركبة نفسها.",265],
+["بوابة الألف باب",["فانتازيا","غموض"],4.9,3400000,"محطة ٧",97,"في قصر بألف باب، كل باب يفتح على عالم. وحارسة صغيرة تحمل المفتاح الوحيد.",255]
+].map((a,i)=>({id:i,t:a[0],g:a[1],r:a[2],v:a[3],tm:a[4],n:a[5],s:a[6],h:a[7],d:(i*2)%9}));
+
+let W = [...mockW]; 
+const G=[...new Set(W.flatMap(w=>w.g))];
+
+const $=s=>document.querySelector(s),app_div=$('#app');
+const nf=n=>n.toLocaleString('ar-EG');
+const ago=d=>d<=0?'اليوم':d==1?'أمس':'قبل '+nf(d)+' يوم';
+const vw=n=>n>=1e6?nf(+(n/1e6).toFixed(1))+' مليون':nf(Math.round(n/1e3))+' ألف';
+let st={fav:[1,4],pr:{0:{c:12,p:60},3:{c:5,p:30}}};
+try{const s=JSON.parse(localStorage.getItem('hibr'));if(s)st=s}catch(e){}
+const save=()=>{try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),m.length>40?5000:2600)};
+const U=s=>'data:image/svg+xml,'+encodeURIComponent(s);
+const X='xmlns="http://www.w3.org/2000/svg"';
+
+/* جلب البيانات الحقيقية من فايربيس (إن وُجدت) */
+async function fetchManga() {
+  if(!db) return; // استخدام الـ Mock data لو مفيش فايربيس
+  try {
+    const snap = await getDocs(collection(db, 'manga'));
+    if(!snap.empty) {
+       W = snap.docs.map(d => ({id: d.id, ...d.data()}));
+       route(); // تحديث الواجهة
+    }
+  } catch(e) { console.error("Fetch err:", e); }
+}
+
+/* الاستماع لحالة تسجيل الدخول */
+if(auth) {
+  onAuthStateChanged(auth, async (user) => {
+    if(user) {
+      const snap = await getDoc(doc(db, 'users', user.uid));
+      st.role = snap.exists() ? snap.data().role : 'user';
+      st.uid = user.uid;
+    } else {
+      st.role = ''; st.uid = null;
+    }
+    save(); tabs(); if(cur === '#/u' || cur === '#/a') route();
+  });
+}
+
+/* غلاف أصلي مولّد */
+const CV={};
+function C(w){return CV[w.id]||(CV[w.id]=(()=>{const h=w.h||100,i=String(w.id).charCodeAt(0)||0;
+let s=`<svg ${X} viewBox="0 0 300 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} 70% 40%)"/><stop offset="1" stop-color="hsl(${(h+60)%360} 70% 12%)"/></linearGradient></defs><rect width="300" height="400" fill="url(#g)"/>`;
+for(let k=0;k<5;k++)s+=`<circle cx="${(i*53+k*97)%300}" cy="${(i*31+k*131)%400}" r="${30+((i+k)*29)%90}" fill="hsl(${h+k*20} 80% ${50+k*4}%)" opacity=".16"/>`;
+s+=`<path d="M-20 ${250+i*9}L320 ${110+i*5}L320 ${160+i*5}L-20 ${310+i*9}Z" fill="#fff" opacity=".09"/>`;
+s+=`<circle cx="150" cy="125" r="${48+i%3*10}" fill="none" stroke="#f2b544" stroke-width="4"/><circle cx="150" cy="125" r="${16+i%4*5}" fill="#f2b544"/>`;
+const wd=w.t.split(' '),m=Math.ceil(wd.length/2),L=wd.length>1?[wd.slice(0,m).join(' '),wd.slice(m).join(' ')]:[w.t],fs=Math.max(...L.map(x=>x.length))>9?30:38;
+L.forEach((x,k)=>s+=`<text x="150" y="${235+k*(fs+8)}" font-size="${fs}" font-weight="800" text-anchor="middle" fill="#fff">${x}</text>`);
+s+=`<rect y="335" width="300" height="65" fill="#000" opacity=".35"/><text x="150" y="374" font-size="16" text-anchor="middle" fill="#ffffffcc">${w.tm}</text></svg>`;
+return U(s)})())}
+
+/* صفحة فصل تجريبية */
+function PG(w,c,p){const h=w.h||100;
+const R=[[[30,30,740,420],[30,470,360,340],[410,470,360,340],[30,830,740,340]],[[30,30,360,560],[410,30,360,270],[410,320,360,270],[30,610,740,560]],[[30,30,740,300],[30,350,740,420],[30,790,360,380],[410,790,360,380]]][p%3];
+let s=`<svg ${X} viewBox="0 0 800 1200"><defs><pattern id="d" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="2.2" fill="#1a1a24"/></pattern></defs><rect width="800" height="1200" fill="#f5f2ea"/>`;
+R.forEach(([x,y,a,b],k)=>{const m=(k+p+c)%4,cx=a/2,cy=b/2;
+let q=`<rect width="${a}" height="${b}" fill="hsl(${h+k*14} 35% ${m==1?32:88}%)"/>`;
+if(m==0){for(let j=0;j<36;j++){const t=j*Math.PI/18;q+=`<line x1="${cx+Math.cos(t)*60}" y1="${cy+Math.sin(t)*60}" x2="${cx+Math.cos(t)*900}" y2="${cy+Math.sin(t)*900}" stroke="#1a1a24" stroke-width="${2+j%3*2}"/>`}q+=`<circle cx="${cx}" cy="${cy}" r="55" fill="#f5f2ea"/>`}
+if(m==1)q+=`<polygon points="0,${b} 0,${b*.55} ${a*.3},${b*.3} ${a*.5},${b*.6} ${a*.75},${b*.2} ${a},${b*.5} ${a},${b}" fill="#0c0d16"/><circle cx="${a*.78}" cy="${b*.22}" r="${b*.1}" fill="#f2b544"/>`;
+if(m==2)q+=`<rect width="${a}" height="${b}" fill="url(#d)" opacity=".3"/><circle cx="${cx}" cy="${cy}" r="${Math.min(a,b)*.3}" fill="none" stroke="#1a1a24" stroke-width="10"/><text x="${cx}" y="${cy+40}" font-size="120" font-weight="800" text-anchor="middle" fill="#1a1a24">!</text>`;
+if(m==3)q+=`<rect y="${b*.6}" width="${a}" height="${b*.4}" fill="url(#d)" opacity=".35"/><ellipse cx="${cx}" cy="${b*.36}" rx="${a*.24}" ry="${b*.18}" fill="#fff" stroke="#1a1a24" stroke-width="5"/><text x="${cx}" y="${b*.38}" font-size="26" font-weight="700" text-anchor="middle" fill="#1a1a24">الفصل ${nf(c)} – صفحة ${nf(p+1)}</text>`;
+s+=`<svg x="${x}" y="${y}" width="${a}" height="${b}">${q}</svg><rect x="${x}" y="${y}" width="${a}" height="${b}" fill="none" stroke="#0c0d16" stroke-width="6"/>`});
+return U(s+'</svg>')}
+
+const card=(w,nw)=>`<a class="card" href="#/m/${w.id}">${nw?'<i class="nw">جديد</i>':''}<img loading="lazy" src="${C(w)}" alt=""><b>${w.t}</b><span>${w.g.join('، ')}</span>${nw?`<span>الفصل ${nf(w.n||1)}</span>`:''}</a>`;
+const back=`<svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>`;
+const chips=g=>`<div class="chips">${g.map(x=>`<span class="chip">${x}</span>`).join('')}</div>`;
+
+function home(){const f=W.length > 5 ? W[5] : W[0]; const pop=[...W].sort((a,b)=>(b.v||0)-(a.v||0)).slice(0,5),lt=[...W].sort((a,b)=>(a.d||0)-(b.d||0)).slice(0,6);
+const cont=Object.keys(st.pr).map(k=>[W.find(w=>w.id==k),st.pr[k]]).filter(x=>x[0]);
+app_div.innerHTML=`<a class="feat" href="#/m/${f.id}"><div class="bg" style="background-image:url('${C(f)}')"></div><div class="in"><img src="${C(f)}" alt=""><div><span class="mu">عمل الأسبوع</span><h1>${f.t}</h1>${chips(f.g)}<span class="btn">ابدأ القراءة</span></div></div></a>
+${cont.length?`<h2>استكمل القراءة</h2><div class="row">${cont.map(([w,p])=>`<a class="cont" href="#/r/${w.id}/${p.c}"><img src="${C(w)}" alt=""><div><b>${w.t}</b><small class="mu">الفصل ${nf(p.c)}</small><div class="bar"><i style="width:${p.p}%"></i></div></div></a>`).join('')}</div>`:''}
+<h2>أحدث الأعمال</h2><div class="grid">${lt.map(w=>card(w,1)).join('')}</div>
+<h2>أشهر المانغا</h2>${pop.map((w,i)=>`<a class="rk" href="#/m/${w.id}"><em>${nf(i+1)}</em><img src="${C(w)}" alt=""><div><b>${w.t}</b><small>${w.g.join('، ')}</small></div><small>${vw(w.v||0)} مشاهدة</small></a>`).join('')}`;
+}
+
+function detail(id){const w=W.find(x=>x.id==id); if(!w) return go('#/'); const p=st.pr[id],fav=st.fav.includes(id),cs=[...Array(w.n||1)].map((_,i)=>(w.n||1)-i);
+app_div.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(w)}')"></div><a class="ib" style="position:relative;margin-bottom:12px" href="${lastTab}" aria-label="رجوع">${back}</a>
+<div class="in"><img src="${C(w)}" alt=""><div><h1>${w.t}</h1><p class="mu">ترجمة: ${w.tm}</p><p>★ ${nf(w.r||5)} · ${vw(w.v||0)} مشاهدة</p>${chips(w.g)}<span class="mu">مستمرة · ${nf(w.n||1)} فصل</span></div></div></div>
+<div class="acts"><a class="btn" href="#/r/${id}/${p?p.c:1}">${p?'تابع الفصل '+nf(p.c):'ابدأ القراءة'}</a><button class="btn g" data-act="fav" data-id="${id}" aria-label="المفضلة">${fav?'♥ في المكتبة':'♡ أضف للمكتبة'}</button></div>
+<h2>القصة</h2><p class="story">${w.s}</p>
+<h2>الفصول</h2>${cs.map(c=>`<a class="ch ${p&&c<p.c?'rd':''}" href="#/r/${id}/${c}"><b>الفصل ${nf(c)}</b></a>`).join('')}`;
+}
+
+function reader(id,c){const w=W.find(x=>x.id==id); c=+c; st.pr[id]={c,p:5}; save(); document.body.classList.add('rdr');
+const pv=c>1?`<a class="btn g" href="#/r/${id}/${c-1}">السابق</a>`:'',nx=c<w.n?`<a class="btn" href="#/r/${id}/${c+1}">الفصل التالي</a>`:'';
+app_div.innerHTML=`<div class="rbar"><a class="ib" href="#/m/${id}" aria-label="رجوع">${back}</a><b>${w.t} – الفصل ${nf(c)}</b></div>
+<div class="rd">${[0,1,2,3,4,5].map(p=>`<img loading="lazy" src="${PG(w,c,p)}" alt="">`).join('')}</div>
+<div class="end"><p class="mu">نهاية الفصل ${nf(c)} (صفحات تجريبية)</p><div class="acts">${pv}${nx}</div><a class="mu" href="#/m/${id}">العودة إلى صفحة العمل</a></div>`;
+window.onscroll=()=>{const p=Math.min(100,Math.round(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)||5);st.pr[id].p=p;save()};
+}
+
+function explore(){let q='',g='';
+const draw=()=>{const r=W.filter(w=>(!g||w.g.includes(g))&&(!q||w.t.includes(q)));
+$('#res').innerHTML=r.length?r.map(w=>card(w)).join(''):'<p class="empty">لا توجد نتائج.</p>'};
+app_div.innerHTML=`<input class="s" id="q" placeholder="ابحث عن عمل" type="search"><div class="chips" id="gs"><button class="chip on" data-g="">الكل</button>${G.map(x=>`<button class="chip" data-g="${x}">${x}</button>`).join('')}</div><div class="grid" id="res" style="margin-top:14px"></div>`;
+$('#q').oninput=e=>{q=e.target.value.trim();draw()};
+$('#gs').onclick=e=>{const b=e.target.closest('button');if(!b)return;g=b.dataset.g;document.querySelectorAll('#gs .c
