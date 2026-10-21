@@ -92,13 +92,22 @@ a,button,label,.chip{touch-action:manipulation}
 .bb span{width:26px;height:26px;border-radius:50%;background:var(--ac);color:#1b1608;font-weight:700;display:grid;place-items:center;font-size:13px;flex:0 0 auto;margin-top:6px}
 .bb textarea{flex:1;background:var(--pn);border:1px solid var(--ln);border-radius:10px;color:var(--tx);font:inherit;padding:8px 10px}
 .bb .btn{padding:8px 12px;font-size:13px}
+.card{min-width:0}
+.card b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:ellipsis;word-break:break-word}
+.card span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.err{color:#ff8a70;border:1px solid #ff8a7066;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
+.btn.sm{padding:6px 14px;font-size:13px;font-weight:600}
 </style>
 </head>
 <body>
 <header class="top"><a class="logo" href="#/">حِبر</a><a class="ib" href="#/x" aria-label="بحث"><svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></a></header>
 <main id="app"></main>
+<noscript><p style="padding:20px">JavaScript is disabled.</p></noscript>
 <nav class="tabs" id="tabs"></nav>
 <div id="toast" role="status"></div>
+<script>
+addEventListener('error',function(e){var d=document.getElementById('app');if(d&&!d.innerHTML.trim())d.innerHTML='<p style="padding:20px;color:#f88;direction:ltr;font:13px monospace">JS error: '+String(e.message)+' (line '+e.lineno+')</p>'});
+</script>
 <script>
 /* ===== بيانات تجريبية (كلها أعمال وصور أصلية مولّدة بالكود) ===== */
 const W=[
@@ -120,9 +129,9 @@ const nf=n=>n.toLocaleString('ar-EG');
 const ago=d=>d<=0?'اليوم':d==1?'أمس':'قبل '+nf(d)+' يوم';
 const vw=n=>n>=1e6?nf(+(n/1e6).toFixed(1))+' مليون':nf(Math.round(n/1e3))+' ألف';
 let st={fav:[1,6],pr:{0:{c:12,p:60},3:{c:5,p:30},4:{c:21,p:85}}};
-try{const s=JSON.parse(localStorage.getItem('hibr'));if(s)st=s}catch(e){}
+try{const s=JSON.parse(localStorage.getItem('hibr'));if(s&&typeof s==='object')st=Object.assign({},st,s);if(!Array.isArray(st.fav))st.fav=[];if(!st.pr||typeof st.pr!=='object')st.pr={}}catch(e){}
 const save=()=>{try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}};
-const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),2600)};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),m.length>40?5000:2600)};
 const U=s=>'data:image/svg+xml,'+encodeURIComponent(s);
 const X='xmlns="http://www.w3.org/2000/svg"';
 
@@ -215,4 +224,98 @@ let cur='',lastTab='#/';
 const A={};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function tabs(){const ad=st.role==='admin';
-$('#tabs').innerHTML=[['#/','h','الرئيسية','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],['#/x','x','استكشف','<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],['#/l','l','مكتبتي','<path d="M6 3h12v18l-6-4-6 4z"/>'],...(ad?[['#/a','a','الإدارة','<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>']]:[]),['#/u','u','حسابي','<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-
+$('#tabs').innerHTML=[['#/','h','الرئيسية','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],['#/x','x','استكشف','<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],['#/l','l','مكتبتي','<path d="M6 3h12v18l-6-4-6 4z"/>'],...(ad?[['#/a','a','الإدارة','<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>']]:[]),['#/u','u','حسابي','<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>']].map(([h,t,l,p])=>`<a href="${h}" data-t="${t}"><svg class="i" viewBox="0 0 24 24">${p}</svg>${l}</a>`).join('')}
+function go(h){if(h===location.hash||(h==='#/'&&!location.hash)){route();return}location.hash=h;setTimeout(()=>{if(cur!==location.hash)route()},80)}
+function route(){const hs=location.hash||'#/';cur=location.hash;const [p,a,b]=hs.slice(2).split('/');
+document.body.classList.remove('rdr');onscroll=null;scrollTo(0,0);
+if(p!=='m'&&p!=='r')lastTab=hs;
+const t={m:'h',x:'x',l:'l',u:'u',a:'a'}[p]||(p==='r'?'':'h');
+document.querySelectorAll('#tabs a').forEach(e=>e.classList.toggle('on',e.dataset.t===t));
+try{({m:()=>detail(a),r:()=>reader(a,b),x:explore,l:lib,u:prof,a:admin}[p]||home)()}
+catch(e){app.innerHTML='<p class="empty">تعذّر فتح الصفحة.</p><p class="empty"><a class="btn" href="#/">العودة للرئيسية</a></p>'}}
+
+function prof(){const ad=st.role==='admin';
+app.innerHTML=`<div class="pf"><div class="av">${ad?'★':'☺'}</div><h2 style="justify-content:center;margin:0 0 4px">${ad?'أهلاً أيها المدير':'أهلاً بك يا زائر'}</h2><p class="mu">${ad?'لديك صلاحية الوصول إلى لوحة الإدارة وأداة الذكاء الاصطناعي.':'سجّل دخولك لحفظ تقدمك ومكتبتك على كل أجهزتك.'}</p>
+<div class="acts">${ad?`<a class="btn" href="#/a">لوحة الإدارة</a><button class="btn g" data-act="out">تسجيل الخروج</button>`:`<button class="btn" data-act="toast" data-m="تسجيل الدخول يعمل بعد ربط Firebase">تسجيل الدخول</button><button class="btn g" data-act="toast" data-m="حسابات فرق الترجمة تُفعَّل بعد ربط Firebase">حساب فريق ترجمة</button>`}</div></div>
+${ad?'':`<button class="btn g" style="width:100%;margin-top:12px;justify-content:center" data-act="adm">دخول كمدير (تجريبي)</button>`}
+<p class="mu" style="margin:14px 0;text-align:center">نسخة تجريبية: الدخول كمدير هنا محلي فقط. بعد ربط Firebase تُفحص الصلاحية من الخادم.</p>
+<div style="text-align:center"><button class="btn g sm" data-act="clr">مسح البيانات المحفوظة</button></div>`}
+
+/* ===== أداة الذكاء الاصطناعي للمدير ===== */
+const AI={appr:[],view:'f',step:0,busy:0,bubs:[]};
+const FF='Tahoma,"Segoe UI",system-ui,sans-serif';
+const mk=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
+const cp=c=>{const n=mk(c.width,c.height);n.getContext('2d').drawImage(c,0,0);return n};
+const flush=()=>{clearTimeout(AI.f);if(AI.pend){AI.pend=0;rebuild();show()}};
+const sl=ms=>new Promise(r=>setTimeout(r,ms));
+const STP=['تبييض الصفحة','ترجمة الحوارات','تنضيد النص العربي'];
+const GT=['من أنت؟!','لن أسمح لك بالمرور.','هل تسمعون ذلك؟','…لقد تأخرتَ كثيراً.','لا تنظر إلى الوراء!','أخيراً وجدتُك.'];
+const SB=[[230,140,160,78,'WHO ARE YOU?!','من أنت؟!'],[600,300,150,70,'I CAME TO TAKE BACK WHAT YOU STOLE.','جئتُ لأستعيد ما سرقتَه مني.'],[210,560,150,80,'…YOU’RE TOO LATE.','…لقد فات الأوان.'],[590,520,140,70,'RUN!','اهرب!'],[580,1000,160,80,'THE GATE IS OPENING!','البوابة تنفتح!']];
+function gray(c){const w=c.width,W=w>>1,H=c.height>>1,d=c.getContext('2d').getImageData(0,0,w,c.height).data,g=new Uint8Array(W*H);
+for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*2*w+x*2)*4;g[y*W+x]=d[i]*.3+d[i+1]*.59+d[i+2]*.11>215?1:0}return{g,W,H}}
+function fit(x,t,w,h,mx){let r;for(let fs=mx;fs>=11;fs--){x.font=`700 ${fs}px ${FF}`;const L=[];let c='';
+for(const s of t.split(/\s+/)){const n=c?c+' '+s:s;if(x.measureText(n).width>w&&c){L.push(c);c=s}else c=n}L.push(c);
+r={L,fs};if(L.length*fs*1.35<=h&&L.every(l=>x.measureText(l).width<=w))return r}return r}
+function put(x,t,cx,cy,w,h,rtl,mx){const{L,fs}=fit(x,t,w,h,mx),lh=fs*1.35;x.font=`700 ${fs}px ${FF}`;x.fillStyle='#111';x.textAlign='center';x.textBaseline='middle';x.direction=rtl?'rtl':'ltr';
+L.forEach((l,i)=>x.fillText(l,cx,cy-(L.length-1)*lh/2+i*lh))}
+function sampleCanvas(){const c=mk(800,1200),x=c.getContext('2d');x.fillStyle='#fbfaf6';x.fillRect(0,0,800,1200);
+[[30,30,740,380],[30,430,360,420],[410,430,360,420],[30,870,740,300]].forEach(([a,b,w,h],i)=>{x.save();x.beginPath();x.rect(a,b,w,h);x.clip();
+x.fillStyle=`hsl(${210+i*30} 18% 66%)`;x.fillRect(a,b,w,h);x.fillStyle='#0003';for(let k=0;k<140;k++){x.beginPath();x.arc(a+(k*37)%w,b+(k*53)%h,5+k%4*2,0,7);x.fill()}
+x.fillStyle='#14151f';x.beginPath();x.moveTo(a,b+h);x.lineTo(a,b+h*.6);x.lineTo(a+w*.3,b+h*.4);x.lineTo(a+w*.55,b+h*.7);x.lineTo(a+w*.8,b+h*.35);x.lineTo(a+w,b+h*.65);x.lineTo(a+w,b+h);x.fill();x.restore();
+x.lineWidth=6;x.strokeStyle='#0c0d16';x.strokeRect(a,b,w,h)});
+SB.forEach(([cx,cy,rx,ry,t])=>{x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,7);x.fillStyle='#fff';x.fill();x.lineWidth=4;x.strokeStyle='#111';x.stroke();put(x,t,cx,cy,rx*1.45,ry*1.3,0,30)});return c}
+function TR(i,b){if(AI.sample){let m=SB[0],d=1e9;SB.forEach(s=>{const k=Math.hypot(s[0]-(b.x+b.w/2)*2,s[1]-(b.y+b.h/2)*2);if(k<d){d=k;m=s}});return m[5]}return GT[i%GT.length]}
+function rebuild(){const s=AI.src,w=s.width,cl=cp(s),x=cl.getContext('2d'),im=x.getImageData(0,0,w,s.height),d=im.data;
+AI.bubs.forEach(b=>{for(let j=0;j<b.h;j++)for(let i=0;i<b.w;i++)if(b.m[j*b.w+i])for(let u=0;u<2;u++)for(let v=0;v<2;v++){const o=((((b.y+j)*2+v)*w)+(b.x+i)*2+u)*4;d[o]=d[o+1]=d[o+2]=255}});
+x.putImageData(im,0,0);AI.cl=cl;const out=cp(cl),y=out.getContext('2d');
+AI.bubs.forEach(b=>{if(b.t)put(y,b.t,(b.x+b.w/2)*2,(b.y+b.h/2)*2,b.w*1.44,b.h*1.3,1,34)});AI.out=out}
+function show(){const cv=$('#cv');if(!cv||!AI.out)return;const s={o:AI.src,c:AI.cl,f:AI.out}[AI.view];cv.width=s.width;cv.height=s.height;const x=cv.getContext('2d');x.drawImage(s,0,0);
+if(AI.view==='o'){x.strokeStyle='#f2b544';x.fillStyle='#f2b544';x.lineWidth=4;x.setLineDash([12,8]);x.font='700 30px sans-serif';x.textAlign='left';x.textBaseline='alphabetic';AI.bubs.forEach((b,i)=>{x.strokeRect(b.x*2,b.y*2,b.w*2,b.h*2);x.fillText(i+1,b.x*2+6,b.y*2+30)})}}
+function stp(){const e=$('#stp');if(e)e.innerHTML=`<div class="stp">${STP.map((s,i)=>`<span class="${AI.step>i?'ok':AI.step===i&&AI.busy?'go':''}">${AI.step>i?'✓ ':AI.step===i&&AI.busy?'… ':''}${s}</span>`).join('')}</div>`}
+function drawRes(){const r=$('#res');if(!r||!AI.out)return;
+r.innerHTML=`<div class="seg">${[['o','الأصلية'],['c','بعد التبييض'],['f','النهائية']].map(([v,l])=>`<button data-act="view" data-v="${v}" class="${AI.view===v?'on':''}">${l}</button>`).join('')}</div>
+<div class="cvw"><canvas id="cv"></canvas></div><p class="mu" style="font-size:13px">إن فاتت فقاعة، اضغط على داخلها في الصورة لإضافتها.</p>
+<h2>الحوارات المترجمة <small>${nf(AI.bubs.length)} فقاعة، ترجمة تجريبية</small></h2>${AI.bubs.map((b,i)=>`<div class="bb"><span>${nf(i+1)}</span><textarea data-i="${i}" rows="2" dir="rtl">${esc(b.t)}</textarea><button class="btn g" data-act="del" data-i="${i}">حذف</button></div>`).join('')||'<p class="empty">لم تُكتشف فقاعات. اضغط على فقاعة بيضاء في الصورة.</p>'}
+<div class="acts"><button class="btn" data-act="ok">اعتماد الصفحة</button><button class="btn g" data-act="dl">تنزيل PNG</button></div>
+${AI.appr.length?`<h2>صفحات معتمدة <small>هذه الجلسة</small></h2><div class="row">${AI.appr.map(u=>`<img src="${u}" style="height:140px;border-radius:8px" alt="">`).join('')}</div>`:''}`;show()}
+async function run(c,smp){if(AI.busy)return;clearTimeout(AI.f);AI.pend=0;Object.assign(AI,{src:c,sample:smp,bubs:[],view:'f',busy:1,step:0});const r=$('#res');if(r)r.innerHTML='';stp();
+try{AI.g=gray(c);await sl(400);AI.bubs=detect(AI.g);rebuild();AI.step=1;stp();
+await sl(500);AI.bubs.forEach((b,i)=>b.t=TR(i,b));AI.step=2;stp();
+await sl(500);rebuild();AI.step=3;AI.busy=0;stp();drawRes();
+if(!AI.bubs.length)toast('لم تُكتشف فقاعات. اضغط على الفقاعة داخل الصورة لإضافتها.')}
+catch(e){AI.busy=0;stp();toast('تعذّرت معالجة الصورة')}}
+function loadFile(f){const im=new Image();im.onload=()=>{if(im.height>5000){URL.revokeObjectURL(im.src);const m='الصورة طويلة جداً ('+nf(im.height)+' بكسل). الحد الأقصى ٥٬٠٠٠ بكسل، يرجى قصّها إلى أجزاء أقصر ثم رفعها.';const e=$('#stp');if(e)e.innerHTML='<p class="err">'+m+'</p>';toast(m);return}const k=Math.min(1,800/im.width),c=mk(Math.round(im.width*k),Math.round(im.height*k));c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(im.src);run(c,0)};im.onerror=()=>toast('تعذّرت قراءة الصورة');im.src=URL.createObjectURL(f)}
+function tap(e){const cv=e.target,r=cv.getBoundingClientRect(),hx=Math.floor((e.clientX-r.left)/r.width*cv.width/2),hy=Math.floor((e.clientY-r.top)/r.height*cv.height/2),{g,W,H}=AI.g,p=hy*W+hx;
+if(hx>=W||hy>=H||!g[p]){toast('اضغط على منطقة بيضاء داخل الفقاعة');return}
+const f=flood(g,W,H,new Uint8Array(W*H),new Int32Array(W*H),p,30,W*H*.5);
+if(!f.q){toast('لم أستطع تحديد فقاعة هنا');return}
+const s=shape(f,W);if(AI.bubs.some(b=>b.x===s.x&&b.y===s.y&&b.w===s.w)){toast('هذه الفقاعة مضافة بالفعل');return}
+s.t=TR(AI.bubs.length,s);AI.bubs.push(s);rebuild();drawRes()}
+function admin(){
+if(st.role!=='admin'){app.innerHTML=`<div class="pf"><div class="av">🔒</div><h2 style="justify-content:center;margin:0 0 4px">للمدير فقط</h2><p class="mu">سجّل الدخول كمدير من صفحة حسابي.</p><div class="acts"><a class="btn" href="#/u">صفحة حسابي</a></div></div>`;return}
+app.innerHTML=`<h2 style="margin-top:6px">أداة الذكاء الاصطناعي <small>للمدير فقط</small></h2><p class="mu">ارفع صفحة بالإنجليزية لتُبيَّض الفقاعات ويُنضَّد حوار عربي مكانها. الكشف والتبييض والتنضيد يعملان فعلاً داخل هاتفك، أما الترجمة فمحاكاة بنصوص تجريبية قابلة للتعديل. وللترجمة الحقيقية نربط خدمة ذكاء اصطناعي من الخادم لاحقاً.</p>
+<div class="acts"><label class="btn"><input type="file" id="fi" accept="image/*" hidden>رفع صفحة</label><button class="btn g" data-act="smp">صفحة تجريبية</button></div><div id="stp"></div><div id="res"></div>`;
+if(AI.src&&AI.out){stp();drawRes()}}
+
+A.toast=d=>toast(d.m);
+A.fav=d=>{const id=+d.id,i=st.fav.indexOf(id);i<0?st.fav.push(id):st.fav.splice(i,1);save();toast(i<0?'أُضيف إلى مكتبتك':'أُزيل من مكتبتك');detail(id)};
+A.adm=()=>{st.role='admin';save();tabs();toast('تم الدخول كمدير (تجريبي)');route()};
+A.out=()=>{st.role='';save();tabs();toast('تم تسجيل الخروج');route()};
+A.clr=()=>{if(!confirm('سيُمسح تقدّم القراءة والمكتبة وتسجيل الدخول التجريبي. متابعة؟'))return;try{localStorage.clear()}catch(e){}location.reload()};
+A.smp=()=>run(sampleCanvas(),1);
+A.view=d=>{flush();AI.view=d.v;drawRes()};
+A.del=d=>{AI.bubs.splice(+d.i,1);rebuild();drawRes()};
+A.ok=()=>{flush();AI.appr.push(AI.out.toDataURL('image/jpeg',.8));drawRes();toast('اعتُمدت الصفحة (تجريبي)')};
+A.dl=()=>{flush();AI.out.toBlob(b=>{const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='page-ar.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)})};
+
+document.addEventListener('click',e=>{
+if(e.target.id==='cv'){tap(e);return}
+const l=e.target.closest('a[href^="#"]');if(l){e.preventDefault();go(l.getAttribute('href'));return}
+const b=e.target.closest('[data-act]');if(b&&A[b.dataset.act])A[b.dataset.act](b.dataset,b)});
+document.addEventListener('change',e=>{if(e.target.id==='fi'&&e.target.files[0]){loadFile(e.target.files[0]);e.target.value=''}else if(e.target.tagName==='TEXTAREA')flush()});
+document.addEventListener('input',e=>{const t=e.target;if(t.tagName==='TEXTAREA'&&t.dataset.i!==undefined&&AI.bubs[+t.dataset.i]){AI.bubs[+t.dataset.i].t=t.value;AI.pend=1;clearTimeout(AI.f);AI.f=setTimeout(flush,400)}});
+addEventListener('hashchange',()=>{if(location.hash!==cur)route()});
+tabs();route();
+</script>
+</body>
+</html>
