@@ -33,10 +33,10 @@ h2 small{font-size:13px;color:var(--mu);font-weight:400}
 .row::-webkit-scrollbar{display:none}
 .row>*{scroll-snap-align:start;flex:0 0 auto}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
-.card{display:block;position:relative;min-width:0}
+.card{display:block;position:relative}
 .card img{width:100%;aspect-ratio:3/4;border-radius:10px;display:block;background:var(--pn)}
-.card b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:ellipsis;word-break:break-word;font-size:14px;margin-top:6px;line-height:1.4}
-.card span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px;color:var(--mu);display:block}
+.card b{display:block;font-size:14px;margin-top:6px;line-height:1.4}
+.card span{font-size:12px;color:var(--mu);display:block}
 .card .nw{position:absolute;top:8px;right:8px;background:var(--ac);color:#1b1608;font-size:11px;font-weight:700;padding:0 8px;border-radius:6px}
 .cont{width:260px;display:flex;gap:10px;background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:10px}
 .cont img{width:56px;border-radius:6px;aspect-ratio:3/4}
@@ -92,8 +92,6 @@ a,button,label,.chip{touch-action:manipulation}
 .bb span{width:26px;height:26px;border-radius:50%;background:var(--ac);color:#1b1608;font-weight:700;display:grid;place-items:center;font-size:13px;flex:0 0 auto;margin-top:6px}
 .bb textarea{flex:1;background:var(--pn);border:1px solid var(--ln);border-radius:10px;color:var(--tx);font:inherit;padding:8px 10px}
 .bb .btn{padding:8px 12px;font-size:13px}
-.err{color:#ff8a70;border:1px solid #ff8a7066;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
-.btn.sm{padding:6px 14px;font-size:13px;font-weight:600}
 </style>
 </head>
 <body>
@@ -124,7 +122,7 @@ const vw=n=>n>=1e6?nf(+(n/1e6).toFixed(1))+' مليون':nf(Math.round(n/1e3))+'
 let st={fav:[1,6],pr:{0:{c:12,p:60},3:{c:5,p:30},4:{c:21,p:85}}};
 try{const s=JSON.parse(localStorage.getItem('hibr'));if(s)st=s}catch(e){}
 const save=()=>{try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}};
-const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),m.length>40?5000:2600)};
+const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),2600)};
 const U=s=>'data:image/svg+xml,'+encodeURIComponent(s);
 const X='xmlns="http://www.w3.org/2000/svg"';
 
@@ -217,4 +215,4 @@ let cur='',lastTab='#/';
 const A={};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function tabs(){const ad=st.role==='admin';
-$('#tabs').innerH
+$('#tabs').innerHTML=[['#/','h','الرئيسية','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],['#/x','x','استكشف','<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],['#/l','l','مكتبتي','<path d="M6 3h12v18l-6-4-6 4z"/>'],...(ad?[['#/a','a','الإدارة','<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>']]:[]),['#/u','u','حسابي','<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-
