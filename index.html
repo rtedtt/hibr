@@ -108,6 +108,9 @@ a,button,label,.chip{touch-action:manipulation}
 <script>
 addEventListener('error',function(e){var d=document.getElementById('app');if(d&&!d.innerHTML.trim())d.innerHTML='<p style="padding:20px;color:#f88;direction:ltr;font:13px monospace">JS error: '+String(e.message)+' (line '+e.lineno+')</p>'});
 </script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 /* ===== بيانات تجريبية (كلها أعمال وصور أصلية مولّدة بالكود) ===== */
 const W=[
@@ -137,7 +140,7 @@ const X='xmlns="http://www.w3.org/2000/svg"';
 
 /* غلاف أصلي مولّد */
 const CV={};
-function C(w){return CV[w.id]||(CV[w.id]=(()=>{const h=w.h,i=w.id;
+function C(w){return w.cover||CV[w.id]||(CV[w.id]=(()=>{const h=w.h,i=w.id;
 let s=`<svg ${X} viewBox="0 0 300 400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} 70% 40%)"/><stop offset="1" stop-color="hsl(${(h+60)%360} 70% 12%)"/></linearGradient></defs><rect width="300" height="400" fill="url(#g)"/>`;
 for(let k=0;k<5;k++)s+=`<circle cx="${(i*53+k*97)%300}" cy="${(i*31+k*131)%400}" r="${30+((i+k)*29)%90}" fill="hsl(${h+k*20} 80% ${50+k*4}%)" opacity=".16"/>`;
 s+=`<path d="M-20 ${250+i*9}L320 ${110+i*5}L320 ${160+i*5}L-20 ${310+i*9}Z" fill="#fff" opacity=".09"/>`;
@@ -166,15 +169,15 @@ const back=`<svg class="i" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>`;
 const chips=g=>`<div class="chips">${g.map(x=>`<span class="chip">${x}</span>`).join('')}</div>`;
 
 /* الصفحات */
-function home(){const f=W[8],pop=[...W].sort((a,b)=>b.v-a.v).slice(0,5),lt=[...W].sort((a,b)=>a.d-b.d).slice(0,6);
-const cont=Object.keys(st.pr).map(k=>[W[+k],st.pr[k]]);
+function home(){const f=W[8]||W[0],pop=[...W].sort((a,b)=>b.v-a.v).slice(0,5),lt=[...W].sort((a,b)=>a.d-b.d).slice(0,6);
+const cont=Object.keys(st.pr).map(k=>[W[+k],st.pr[k]]).filter(x=>x[0]);
 app.innerHTML=`<a class="feat" href="#/m/${f.id}"><div class="bg" style="background-image:url('${C(f)}')"></div><div class="in"><img src="${C(f)}" alt=""><div><span class="mu">عمل الأسبوع</span><h1>${f.t}</h1>${chips(f.g)}<span class="btn">ابدأ القراءة</span></div></div></a>
 ${cont.length?`<h2>استكمل القراءة</h2><div class="row">${cont.map(([w,p])=>`<a class="cont" href="#/r/${w.id}/${p.c}"><img src="${C(w)}" alt=""><div><b>${w.t}</b><small class="mu">الفصل ${nf(p.c)}</small><div class="bar"><i style="width:${p.p}%"></i></div></div></a>`).join('')}</div>`:''}
 <h2>أحدث الأعمال <small>حُدّثت مؤخراً</small></h2><div class="grid">${lt.map(w=>card(w,1)).join('')}</div>
 <h2>أشهر المانغا</h2>${pop.map((w,i)=>`<a class="rk" href="#/m/${w.id}"><em>${nf(i+1)}</em><img src="${C(w)}" alt=""><div><b>${w.t}</b><small>${w.g.join('، ')}</small></div><small>${vw(w.v)} مشاهدة</small></a>`).join('')}`;
 }
 
-function detail(id){const w=W[id],p=st.pr[id],fav=st.fav.includes(+id),cs=[...Array(w.n)].map((_,i)=>w.n-i);
+function detail(id){const w=W[id],p=st.pr[id],fav=st.fav.includes(+id),cs=chList(w,id);if(FB.on&&w.fid&&!FB.ch[id])FB.chap(id);
 app.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(w)}')"></div><a class="ib" style="position:relative;margin-bottom:12px" href="${lastTab}" aria-label="رجوع">${back}</a>
 <div class="in"><img src="${C(w)}" alt=""><div><h1>${w.t}</h1><p class="mu">ترجمة: ${w.tm}</p><p>★ ${nf(w.r)} · ${vw(w.v)} مشاهدة</p>${chips(w.g)}<span class="mu">مستمرة · ${nf(w.n)} فصل</span></div></div></div>
 <div class="acts"><a class="btn" href="#/r/${id}/${p?p.c:1}">${p?'تابع الفصل '+nf(p.c):'ابدأ القراءة'}</a><button class="btn g" data-act="fav" data-id="${id}" aria-label="المفضلة">${fav?'♥ في المكتبة':'♡ أضف للمكتبة'}</button></div>
@@ -182,10 +185,10 @@ app.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(
 <h2>الفصول <small>${nf(w.n)} فصل</small></h2>${cs.map(c=>`<a class="ch ${p&&c<p.c?'rd':''}" href="#/r/${id}/${c}"><b>الفصل ${nf(c)}</b><small>${ago(w.d+(w.n-c)*6)}</small></a>`).join('')}`;
 }
 
-function reader(id,c){const w=W[id];c=+c;st.pr[id]={c,p:5};save();document.body.classList.add('rdr');
+function reader(id,c){const w=W[id];c=+c;if(FB.on&&w.fid&&!FB.ch[id])FB.chap(id);st.pr[id]={c,p:5};save();document.body.classList.add('rdr');
 const pv=c>1?`<a class="btn g" href="#/r/${id}/${c-1}">السابق</a>`:'',nx=c<w.n?`<a class="btn" href="#/r/${id}/${c+1}">الفصل التالي</a>`:'';
 app.innerHTML=`<div class="rbar"><a class="ib" href="#/m/${id}" aria-label="رجوع">${back}</a><b>${w.t} – الفصل ${nf(c)}</b></div>
-<div class="rd">${[0,1,2,3,4,5].map(p=>`<img loading="lazy" src="${PG(w,c,p)}" alt="">`).join('')}</div>
+<div class="rd">${rp(w,id,c).map(u=>`<img loading="lazy" src="${u}" alt="">`).join('')}</div>
 <div class="end"><p class="mu">نهاية الفصل ${nf(c)} (صفحات تجريبية)</p><div class="acts">${pv}${nx}</div><a class="mu" href="#/m/${id}">العودة إلى صفحة العمل</a></div>`;
 onscroll=()=>{const p=Math.min(100,Math.round(scrollY/(document.body.scrollHeight-innerHeight)*100)||5);st.pr[id].p=p;save()};
 }
@@ -198,7 +201,7 @@ $('#q').oninput=e=>{q=e.target.value.trim();draw()};
 $('#gs').onclick=e=>{const b=e.target.closest('button');if(!b)return;g=b.dataset.g;document.querySelectorAll('#gs .chip').forEach(x=>x.classList.toggle('on',x===b));draw()};draw();
 }
 
-function lib(){const f=st.fav.map(i=>W[i]);
+function lib(){const f=st.fav.map(i=>W[i]).filter(Boolean);
 app.innerHTML=`<h2 style="margin-top:6px">مكتبتي <small>${nf(f.length)} عمل</small></h2>${f.length?`<div class="grid">${f.map(w=>card(w)).join('')}</div>`:'<p class="empty">مكتبتك فارغة. افتح أي عمل واضغط على أضف للمكتبة.</p>'}`}
 
 /* ===== كشف الفقاعات (معالجة محلية داخل المتصفح) ===== */
@@ -299,7 +302,7 @@ if(AI.src&&AI.out){stp();drawRes()}}
 
 A.toast=d=>toast(d.m);
 A.fav=d=>{const id=+d.id,i=st.fav.indexOf(id);i<0?st.fav.push(id):st.fav.splice(i,1);save();toast(i<0?'أُضيف إلى مكتبتك':'أُزيل من مكتبتك');detail(id)};
-A.adm=()=>{st.role='admin';save();tabs();toast('تم الدخول كمدير (تجريبي)');route()};
+A.adm=()=>{if(FB.on)return;st.role='admin';save();tabs();toast('تم الدخول كمدير (تجريبي)');route()};
 A.out=()=>{st.role='';save();tabs();toast('تم تسجيل الخروج');route()};
 A.clr=()=>{if(!confirm('سيُمسح تقدّم القراءة والمكتبة وتسجيل الدخول التجريبي. متابعة؟'))return;try{localStorage.clear()}catch(e){}location.reload()};
 A.smp=()=>run(sampleCanvas(),1);
@@ -315,7 +318,39 @@ const b=e.target.closest('[data-act]');if(b&&A[b.dataset.act])A[b.dataset.act](b
 document.addEventListener('change',e=>{if(e.target.id==='fi'&&e.target.files[0]){loadFile(e.target.files[0]);e.target.value=''}else if(e.target.tagName==='TEXTAREA')flush()});
 document.addEventListener('input',e=>{const t=e.target;if(t.tagName==='TEXTAREA'&&t.dataset.i!==undefined&&AI.bubs[+t.dataset.i]){AI.bubs[+t.dataset.i].t=t.value;AI.pend=1;clearTimeout(AI.f);AI.f=setTimeout(flush,400)}});
 addEventListener('hashchange',()=>{if(location.hash!==cur)route()});
-tabs();route();
+
+/* ===== Firebase (اختياري): ضع بيانات مشروعك هنا. إن بقيت فارغة تعمل البيانات التجريبية ===== */
+const firebaseConfig={apiKey:"",authDomain:"",projectId:"",storageBucket:"",messagingSenderId:"",appId:""};
+const FB={on:false,db:null,au:null,user:null,ch:{}};
+const chList=(w,id)=>FB.ch[id]?FB.ch[id].map(k=>k.num):[...Array(w.n)].map((_,i)=>w.n-i);
+const rp=(w,id,c)=>{const x=FB.ch[id]&&FB.ch[id].find(k=>k.num===c);return x&&x.pages&&x.pages.length?x.pages:[0,1,2,3,4,5].map(p=>PG(w,c,p))};
+FB.chap=async id=>{const w=W[id];FB.ch[id]=[];try{
+const q=await FB.db.collection('works').doc(w.fid).collection('chapters').orderBy('num','desc').get(),r=[];
+q.forEach(d=>{const x=d.data();r.push({num:+x.num,pages:Array.isArray(x.pages)?x.pages:[]})});
+if(!r.length){delete FB.ch[id];FB.ch[id]=null;return}
+FB.ch[id]=r;w.n=Math.max(...r.map(k=>k.num));if(/^#\/[mr]\//.test(location.hash))route()}catch(e){FB.ch[id]=null}};
+FB.load=async()=>{try{const q=await FB.db.collection('works').get(),r=[];
+q.forEach(d=>{const x=d.data();r.push({fid:d.id,t:x.title||'',g:x.genres||[],r:+x.rating||0,v:+x.views||0,tm:x.team||'',n:+x.chapters||1,s:x.story||'',h:+x.hue||0,d:+x.daysAgo||0,cover:x.cover||''})});
+if(!r.length)return;r.forEach((w,i)=>w.id=i);W.length=0;W.push(...r);G.length=0;G.push(...new Set(W.flatMap(w=>w.g)));
+if(st.src!=='fb'){st.fav=[];st.pr={};st.src='fb';save()}FB.ch={};route()}catch(e){}};
+FB.init=()=>{try{
+if(!window.firebase||!firebaseConfig.apiKey||!firebaseConfig.projectId)return;
+firebase.initializeApp(firebaseConfig);FB.au=firebase.auth();FB.db=firebase.firestore();FB.on=true;st.role='';tabs();
+const er=e=>toast('تعذّر تنفيذ العملية: '+(e&&e.code||''));
+A.login=async()=>{try{await FB.au.signInWithEmailAndPassword($('#em').value.trim(),$('#pw').value)}catch(e){er(e)}};
+A.signup=async()=>{try{const c=await FB.au.createUserWithEmailAndPassword($('#em').value.trim(),$('#pw').value);
+await FB.db.doc('users/'+c.user.uid).set({role:'user',email:c.user.email})}catch(e){er(e)}};
+A.out=async()=>{try{await FB.au.signOut()}catch(e){er(e)}};
+const p0=prof;prof=function(){p0();if(!FB.on)return;const ad=st.role==='admin',a=app.querySelector('.acts');if(!a)return;
+if(FB.user)a.innerHTML=(ad?'<a class="btn" href="#/a">لوحة الإدارة</a>':'')+'<button class="btn g" data-act="out">تسجيل الخروج</button>';
+else{a.insertAdjacentHTML('beforebegin','<input class="s" id="em" type="email" placeholder="البريد الإلكتروني" autocomplete="email" style="margin-bottom:8px"><input class="s" id="pw" type="password" placeholder="كلمة المرور" autocomplete="current-password" style="margin-bottom:10px">');
+a.innerHTML='<button class="btn" data-act="login">تسجيل الدخول</button><button class="btn g" data-act="signup">إنشاء حساب</button>'}
+const d=app.querySelector('[data-act="adm"]');if(d)d.remove();const n=[...app.querySelectorAll('p.mu')].pop();if(n&&!n.closest('.pf'))n.remove()};
+FB.au.onAuthStateChanged(async u=>{FB.user=u;st.role='';
+if(u){try{const d=await FB.db.doc('users/'+u.uid).get();if(d.exists&&d.data().role==='admin')st.role='admin'}catch(e){}}
+tabs();if(/^#\/[ua]$/.test(location.hash))route()});
+FB.load()}catch(e){FB.on=false}};
+tabs();route();FB.init();
 </script>
 </body>
 </html>
