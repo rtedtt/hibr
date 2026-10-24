@@ -49,7 +49,8 @@ h2 small{font-size:13px;color:var(--mu);font-weight:400}
 .rk:nth-child(-n+3) em{color:var(--ac)}
 .rk img{width:52px;border-radius:6px;aspect-ratio:3/4}
 .rk div{flex:1}
-.rk b{display:block}.rk small{color:var(--mu)}
+.rk b{display:block}
+.rk small{color:var(--mu)}
 .dt{position:relative;margin:-16px -16px 0;padding:16px;overflow:hidden}
 .dt .bg{position:absolute;inset:0;background-size:cover;filter:blur(26px) brightness(.4);transform:scale(1.3)}
 .dt .in{position:relative;display:flex;gap:16px}
@@ -72,7 +73,6 @@ body.rdr main{padding:0 0 30px;max-width:780px}
 .rd img{width:100%;display:block}
 .end{text-align:center;padding:24px 16px}
 .end .acts{justify-content:center}
-.pf{background:var(--pn);border:1px solid var(--ln);border-radius:16px;padding:20px;text-align:center}
 .av{width:72px;height:72px;border-radius:50%;background:var(--ln);margin:0 auto 10px;display:grid;place-items:center;font-size:30px}
 .empty{text-align:center;color:var(--mu);padding:40px 10px}
 #toast{position:fixed;bottom:calc(80px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--pn);border:1px solid var(--ac);padding:10px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:9;width:max-content;max-width:90%;text-align:center}
@@ -80,32 +80,28 @@ body.rdr main{padding:0 0 30px;max-width:780px}
 :focus-visible{outline:2px solid var(--ac)}
 a,button,label,.chip{touch-action:manipulation}
 .tabs a{min-height:54px;justify-content:center}
-.stp{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.stp span{font-size:13px;padding:4px 12px;border-radius:20px;border:1px solid var(--ln);color:var(--mu)}
-.stp .ok{color:var(--ok);border-color:var(--ok)}.stp .go{color:var(--ac);border-color:var(--ac)}
-.seg{display:flex;background:var(--pn);border-radius:10px;padding:3px;margin:14px 0 10px}
-.seg button{flex:1;padding:8px 0;border-radius:8px;font-size:13px;color:var(--mu)}
-.seg .on{background:var(--ac);color:#1b1608;font-weight:700}
-.cvw{border-radius:10px;overflow:hidden;border:1px solid var(--ln)}
-.cvw canvas{width:100%;display:block}
-.bb{display:flex;gap:8px;align-items:flex-start;margin-bottom:8px}
-.bb span{width:26px;height:26px;border-radius:50%;background:var(--ac);color:#1b1608;font-weight:700;display:grid;place-items:center;font-size:13px;flex:0 0 auto;margin-top:6px}
-.bb textarea{flex:1;background:var(--pn);border:1px solid var(--ln);border-radius:10px;color:var(--tx);font:inherit;padding:8px 10px}
-.bb .btn{padding:8px 12px;font-size:13px}
 .card{min-width:0}
 .card b{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;line-clamp:1;overflow:hidden;text-overflow:ellipsis;word-break:break-word}
 .card span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.err{color:#ff8a70;border:1px solid #ff8a7066;border-radius:10px;padding:10px 12px;margin:12px 0;font-size:14px}
 .btn.sm{padding:6px 14px;font-size:13px;font-weight:600}
-.fm{background:var(--pn);border:1px solid var(--ln);border-radius:14px;padding:16px;margin-bottom:16px}
-.fm h3{margin-bottom:10px}
-.fm label{display:block;font-size:13px;color:var(--mu);margin-bottom:4px}
-.fm input,.fm select,.fm textarea{width:100%;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;font:inherit;margin-bottom:10px}
-.fm .btn{width:100%;justify-content:center}
-#cv.bx{touch-action:none;cursor:crosshair}
-.btn.red{background:#e5484d;color:#fff}
-.okm{color:var(--ok);margin-bottom:8px;font-size:14px}
 .lb{font-style:normal;font-size:10px;font-weight:700;color:#c9b2ff;background:#8b5cf624;border:1px solid #8b5cf6b3;border-radius:6px;padding:0 6px;margin-inline-end:4px;display:inline-block;line-height:1.6;vertical-align:middle}
+.wc{background:linear-gradient(160deg,#1d2144,#12152a);border:1px solid var(--ln);border-radius:20px;padding:26px 20px;text-align:center}
+.wl{font-weight:800;font-size:36px;color:var(--ac);line-height:1.2}
+.wc .nm{justify-content:center;margin:10px 0 4px;font-size:21px}
+.ft{list-style:none;padding:0;margin:18px 0;text-align:right}
+.ft li{display:flex;gap:10px;align-items:center;padding:7px 0;color:#c9cce3;font-size:14px}
+.ft svg{color:var(--ok);flex:0 0 auto}
+.gb{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#fff;color:#1f1f1f;border-radius:12px;padding:12px 16px;font-weight:700;font-size:15px}
+.gg{font-weight:800;font-size:19px;color:#4285f4}
+.fine{color:var(--mu);font-size:12px;margin-top:12px}
+.ph{width:86px;height:86px;border-radius:50%;object-fit:cover;border:3px solid var(--ac);margin:0 auto;display:block}
+.ph.ini{display:grid;place-items:center;background:var(--ln);font-size:34px;font-weight:700}
+.stats{display:flex;gap:10px;margin:18px 0}
+.stats div{flex:1;background:#ffffff0a;border:1px solid var(--ln);border-radius:12px;padding:10px}
+.stats b{display:block;font-size:24px;color:var(--ac)}
+.stats span{font-size:12px;color:var(--mu)}
+.pgerr{background:var(--pn);border:1px dashed var(--ln);border-radius:10px;padding:34px 16px;text-align:center;color:var(--mu);margin:8px 0}
+.pgerr p{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -120,7 +116,6 @@ addEventListener('error',function(e){var d=document.getElementById('app');if(d&&
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 <script>
 /* ===== بيانات تجريبية (كلها أعمال وصور أصلية مولّدة بالكود) ===== */
 const W=[
@@ -143,7 +138,7 @@ const ago=d=>d<=0?'اليوم':d==1?'أمس':'قبل '+nf(d)+' يوم';
 const vw=n=>n>=1e6?nf(+(n/1e6).toFixed(1))+' مليون':nf(Math.round(n/1e3))+' ألف';
 let st={fav:['m1','m6'],pr:{m0:{c:12,p:60},m3:{c:5,p:30},m4:{c:21,p:85}}};
 try{const s=JSON.parse(localStorage.getItem('hibr'));if(s&&typeof s==='object')st=Object.assign({},st,s);if(!Array.isArray(st.fav))st.fav=[];if(!st.pr||typeof st.pr!=='object')st.pr={};st.fav=st.fav.map(k=>typeof k==='number'?'m'+k:k);Object.keys(st.pr).forEach(k=>{if(/^\d+$/.test(k)){st.pr['m'+k]=st.pr[k];delete st.pr[k]}})}catch(e){}
-const save=()=>{try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}};
+const save=q=>{if(!q)st.ts=Date.now();try{localStorage.setItem('hibr',JSON.stringify(st))}catch(e){}if(!q)syncUp()};
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.k);toast.k=setTimeout(()=>t.classList.remove('on'),m.length>40?5000:2600)};
 const U=s=>'data:image/svg+xml,'+encodeURIComponent(s);
 const X='xmlns="http://www.w3.org/2000/svg"';
@@ -188,8 +183,8 @@ ${cont.length?`<h2>استكمل القراءة</h2><div class="row">${cont.map((
 }
 
 const gw=id=>W.find(x=>x.id===id);
-const prune=()=>{st.fav=st.fav.filter(k=>typeof k==='string'&&gw(k));Object.keys(st.pr).forEach(k=>{if(!gw(k))delete st.pr[k]});save()};
-function detail(id){const w=gw(id);if(!w){app.innerHTML='<p class="empty">العمل غير موجود.</p>';return}const p=st.pr[id],fav=st.fav.includes(id),cs=chList(w,id);if(FB.on&&w.fid&&!FB.ch[id])FB.chap(id);
+const prune=()=>{st.fav=st.fav.filter(k=>typeof k==='string'&&gw(k));Object.keys(st.pr).forEach(k=>{if(!gw(k))delete st.pr[k]});save(true)};
+function detail(id){const w=gw(id);if(!w){app.innerHTML='<p class="empty">العمل غير موجود.</p>';return}document.title=((w.rw&&w.rw.t)||w.t)+' | حِبر';const p=st.pr[id],fav=st.fav.includes(id),cs=chList(w,id);if(FB.on&&w.fid&&!FB.ch[id])FB.chap(id);
 app.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(w)}')"></div><a class="ib" style="position:relative;margin-bottom:12px" href="${lastTab}" aria-label="رجوع">${back}</a>
 <div class="in"><img src="${C(w)}" alt=""><div><h1>${w.t}</h1><p class="mu">ترجمة: ${w.tm}</p>${w.lang==='en'?'<i class="lb">إنجليزي</i>':''}<p>${w.r||w.v?'★ '+nf(w.r)+' · '+vw(w.v)+' مشاهدة':''}</p>${chips(w.g)}<span class="mu">مستمرة · ${nf(w.n)} فصل</span></div></div></div>
 <div class="acts">${cs.length||!w.fid?`<a class="btn" href="#/r/${id}/${p?p.c:(cs.length?Math.min(...cs):1)}">${p?'تابع الفصل '+nf(p.c):'ابدأ القراءة'}</a>`:''}<button class="btn g" data-act="fav" data-id="${id}" aria-label="المفضلة">${fav?'♥ في المكتبة':'♡ أضف للمكتبة'}</button></div>
@@ -197,15 +192,17 @@ app.innerHTML=`<div class="dt"><div class="bg" style="background-image:url('${C(
 <h2>الفصول <small>${nf(w.n)} فصل</small></h2>${cs.map(c=>`<a class="ch ${p&&c<p.c?'rd':''}" href="#/r/${id}/${c}"><b>الفصل ${nf(c)}</b><small>${ago(w.fid?w.d:w.d+(w.n-c)*6)}</small></a>`).join('')}`;
 }
 
-let SV=0;
+let SV=0,RSK=0;
 function reader(id,c){const w=gw(id);if(!w){app.innerHTML='<p class="empty">العمل غير موجود.</p>';return}c=+c;if(FB.on&&w.fid&&!FB.ch[id])FB.chap(id);
-const o=st.pr[id];st.pr[id]={c,p:o&&o.c===c?o.p:5};save();document.body.classList.add('rdr');
-const cl=[...chList(w,id)].sort((a,b)=>a-b),i=cl.indexOf(c),pvN=i>0?cl[i-1]:null,nxN=i>=0&&i<cl.length-1?cl[i+1]:null,pg=rp(w,id,c);
+document.title=((w.rw&&w.rw.t)||w.t)+' - الفصل '+nf(c)+' | حِبر';
+const o=st.pr[id],sv=o&&o.c===c?o.p:0;st.pr[id]={c,p:sv||5,t:Date.now()};save();document.body.classList.add('rdr');
+const cl=[...chList(w,id)].sort((a,b)=>a-b),i=cl.indexOf(c),pvN=i>0?cl[i-1]:null,nxN=i>=0&&i<cl.length-1?cl[i+1]:null,pg=rp(w,id,c),ldg=FB.ch[id]&&!FB.ch[id].length;
 const pv=pvN!==null?`<a class="btn g" href="#/r/${id}/${pvN}">السابق</a>`:'',nx=nxN!==null?`<a class="btn" href="#/r/${id}/${nxN}">الفصل التالي</a>`:'';
 app.innerHTML=`<div class="rbar"><a class="ib" href="#/m/${id}" aria-label="رجوع">${back}</a><b>${w.t} – الفصل ${nf(c)}</b></div>
-<div class="rd">${pg.length?pg.map(u=>`<img loading="lazy" src="${u}" alt="">`).join(''):'<p class="empty">لا توجد صفحات لهذا الفصل.</p>'}</div>
+<div class="rd">${pg.length?pg.map(u=>`<img loading="lazy" src="${u}"${u.startsWith('data:')?'':` data-u="${u}"`} alt="">`).join(''):`<p class="empty">${ldg?'جارٍ التحميل…':'لا توجد صفحات لهذا الفصل.'}</p>`}</div>
 <div class="end"><p class="mu">نهاية الفصل ${nf(c)}${w.fid?'':' (صفحات تجريبية)'}</p><div class="acts">${pv}${nx}</div><a class="mu" href="#/m/${id}">العودة إلى صفحة العمل</a></div>`;
-onscroll=()=>{clearTimeout(SV);SV=setTimeout(()=>{if(!st.pr[id])return;st.pr[id].p=Math.min(100,Math.round(scrollY/Math.max(1,document.body.scrollHeight-innerHeight)*100)||5);save()},500)};
+if(sv>8&&sv<97&&pg.length)resume(sv);
+onscroll=()=>{if(RSK)return;clearTimeout(SV);SV=setTimeout(()=>{if(!st.pr[id])return;st.pr[id].p=Math.min(100,Math.round(scrollY/Math.max(1,document.body.scrollHeight-innerHeight)*100)||5);st.pr[id].t=Date.now();save()},500)};
 }
 
 function explore(){let q='',g='';
@@ -219,251 +216,62 @@ $('#gs').onclick=e=>{const b=e.target.closest('button');if(!b)return;g=b.dataset
 function lib(){const f=st.fav.map(gw).filter(Boolean);
 app.innerHTML=`<h2 style="margin-top:6px">مكتبتي <small>${nf(f.length)} عمل</small></h2>${f.length?`<div class="grid">${f.map(w=>card(w)).join('')}</div>`:'<p class="empty">مكتبتك فارغة. افتح أي عمل واضغط على أضف للمكتبة.</p>'}`}
 
-/* ===== كشف الفقاعات (معالجة محلية داخل المتصفح) ===== */
-function flood(g,W,H,lab,q,s,mn,mx){let h=0,t=0,x0=W,x1=0,y0=H,y1=0,b=0;q[t++]=s;lab[s]=1;
-while(h<t){const p=q[h++],x=p%W,y=(p-x)/W;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y;if(!x||!y||x===W-1||y===H-1)b=1;
-if(x>0&&g[p-1]&&!lab[p-1]){lab[p-1]=1;q[t++]=p-1}
-if(x<W-1&&g[p+1]&&!lab[p+1]){lab[p+1]=1;q[t++]=p+1}
-if(y>0&&g[p-W]&&!lab[p-W]){lab[p-W]=1;q[t++]=p-W}
-if(y<H-1&&g[p+W]&&!lab[p+W]){lab[p+W]=1;q[t++]=p+W}}
-return{q:t>=mn&&t<=mx?q.slice(0,t):null,x0,x1,y0,y1,b,a:t}}
-function shape(f,W){const bw=f.x1-f.x0+1,bh=f.y1-f.y0+1,rm=new Int32Array(bh).fill(1e9),rM=new Int32Array(bh).fill(-1),cm=new Int32Array(bw).fill(1e9),cM=new Int32Array(bw).fill(-1);
-for(const p of f.q){const x=p%W-f.x0,y=((p/W)|0)-f.y0;if(x<rm[y])rm[y]=x;if(x>rM[y])rM[y]=x;if(y<cm[x])cm[x]=y;if(y>cM[x])cM[x]=y}
-const m=new Uint8Array(bw*bh);let n=0;
-for(let y=0;y<bh;y++)for(let x=0;x<bw;x++)if(x>=rm[y]&&x<=rM[y]&&y>=cm[x]&&y<=cM[x]){m[y*bw+x]=1;n++}
-return{x:f.x0,y:f.y0,w:bw,h:bh,m,n,a:f.a,t:''}}
-function detect({g,W,H}){const lab=new Uint8Array(W*H),q=new Int32Array(W*H),o=[];
-for(let s=0;s<W*H;s++){if(!g[s]||lab[s])continue;const f=flood(g,W,H,lab,q,s,W*H*.004,W*H*.2);if(!f.q||f.b)continue;
-const bw=f.x1-f.x0+1,bh=f.y1-f.y0+1,rt=bw/bh;if(rt<.25||rt>4||f.a/(bw*bh)<.4)continue;
-const sh=shape(f,W),hl=(sh.n-sh.a)/sh.n;if(hl>.015&&hl<.65)o.push(sh)}
-return o.sort((a,b)=>Math.abs(a.y-b.y)>H*.08?a.y-b.y:(b.x+b.w)-(a.x+a.w))}
 /* ===== التنقل والأحداث ===== */
 let cur='',lastTab='#/';
 const A={};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function tabs(){const ad=st.role==='admin';
-$('#tabs').innerHTML=[['#/','h','الرئيسية','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],['#/x','x','استكشف','<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],['#/l','l','مكتبتي','<path d="M6 3h12v18l-6-4-6 4z"/>'],...(ad?[['#/a','a','الإدارة','<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/>']]:[]),['#/u','u','حسابي','<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>']].map(([h,t,l,p])=>`<a href="${h}" data-t="${t}"><svg class="i" viewBox="0 0 24 24">${p}</svg>${l}</a>`).join('')}
+function tabs(){
+$('#tabs').innerHTML=[['#/','h','الرئيسية','<path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/>'],['#/x','x','استكشف','<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>'],['#/l','l','مكتبتي','<path d="M6 3h12v18l-6-4-6 4z"/>'],['#/u','u','حسابي','<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>']].map(([h,t,l,p])=>`<a href="${h}" data-t="${t}"><svg class="i" viewBox="0 0 24 24">${p}</svg>${l}</a>`).join('')}
 function go(h){if(h===location.hash||(h==='#/'&&!location.hash)){route();return}location.hash=h;setTimeout(()=>{if(cur!==location.hash)route()},80)}
 function gate(){if(!FB.ready)return'<p class="empty">جارٍ التحميل…</p>';
 if(FB.err)return'<p class="empty">تعذّر تحميل الأعمال. تحقق من اتصالك ثم حاول مجدداً.</p><p class="empty"><button class="btn" data-act="retry">إعادة المحاولة</button></p>';
-if(!W.length)return'<p class="empty">لا توجد أعمال منشورة بعد. عُد قريباً!</p>'+(st.role==='admin'?'<p class="empty"><a class="btn" href="#/a">لوحة الإدارة</a></p>':'');return''}
+if(!W.length)return'<p class="empty">لا توجد أعمال منشورة بعد. عُد قريباً!</p>';return''}
 function route(){const hs=location.hash||'#/';cur=location.hash;const [p,a,b]=hs.slice(2).split('/');
-document.body.classList.remove('rdr');onscroll=null;clearTimeout(SV);scrollTo(0,0);
+document.body.classList.remove('rdr');onscroll=null;clearTimeout(SV);RSK=0;scrollTo(0,0);
 if(p!=='m'&&p!=='r')lastTab=hs;
-const t={m:'h',x:'x',l:'l',u:'u',a:'a'}[p]||(p==='r'?'':'h');
+const t={m:'h',x:'x',l:'l',u:'u'}[p]||(p==='r'?'':'h');
+document.title={x:'استكشف | حِبر',l:'مكتبتي | حِبر',u:'حسابي | حِبر'}[p]||'حِبر – مانغا ومانهوا';
 document.querySelectorAll('#tabs a').forEach(e=>e.classList.toggle('on',e.dataset.t===t));
-if(FB.cfg&&p!=='u'&&p!=='a'){const g=gate();if(g){app.innerHTML=g;return}}
-try{({m:()=>detail(a),r:()=>reader(a,b),x:explore,l:lib,u:prof,a:admin}[p]||home)()}
+if(FB.cfg&&p!=='u'){const g=gate();if(g){app.innerHTML=g;return}}
+try{({m:()=>detail(a),r:()=>reader(a,b),x:explore,l:lib,u:prof}[p]||home)()}
 catch(e){app.innerHTML='<p class="empty">تعذّر فتح الصفحة.</p><p class="empty"><a class="btn" href="#/">العودة للرئيسية</a></p>'}}
 
-function prof(){const ad=st.role==='admin';
-app.innerHTML=`<div class="pf"><div class="av">${ad?'★':'☺'}</div><h2 style="justify-content:center;margin:0 0 4px">${ad?'أهلاً أيها المدير':'أهلاً بك يا زائر'}</h2><p class="mu">${ad?'لديك صلاحية الوصول إلى لوحة الإدارة وأداة الذكاء الاصطناعي.':'سجّل دخولك لحفظ تقدمك ومكتبتك على كل أجهزتك.'}</p>
-<div class="acts">${ad?`<a class="btn" href="#/a">لوحة الإدارة</a><button class="btn g" data-act="out">تسجيل الخروج</button>`:`<button class="btn" data-act="toast" data-m="تسجيل الدخول يعمل بعد ربط Firebase">تسجيل الدخول</button><button class="btn g" data-act="toast" data-m="حسابات فرق الترجمة تُفعَّل بعد ربط Firebase">حساب فريق ترجمة</button>`}</div></div>
-${ad?'':`<button class="btn g" style="width:100%;margin-top:12px;justify-content:center" data-act="adm">دخول كمدير (تجريبي)</button>`}
-<p class="mu" style="margin:14px 0;text-align:center">نسخة تجريبية: الدخول كمدير هنا محلي فقط. بعد ربط Firebase تُفحص الصلاحية من الخادم.</p>
-<div style="text-align:center"><button class="btn g sm" data-act="clr">مسح البيانات المحفوظة</button></div>`}
-
-/* ===== أداة الذكاء الاصطناعي للمدير ===== */
-const AI={view:'f',step:0,busy:0,bubs:[],q:[],qi:0,done:[],sk:[],mode:'tap'};
-const FF='Tahoma,"Segoe UI",system-ui,sans-serif';
-const mk=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
-const cp=c=>{const n=mk(c.width,c.height);n.getContext('2d').drawImage(c,0,0);return n};
-const flush=()=>{clearTimeout(AI.f);if(AI.pend){AI.pend=0;rebuild();show()}};
-const sl=ms=>new Promise(r=>setTimeout(r,ms));
-const STP=['تبييض الصفحة','ترجمة الحوارات','تنضيد النص العربي'];
-const GT=['من أنت؟!','لن أسمح لك بالمرور.','هل تسمعون ذلك؟','…لقد تأخرتَ كثيراً.','لا تنظر إلى الوراء!','أخيراً وجدتُك.'];
-const SB=[[230,140,160,78,'WHO ARE YOU?!','من أنت؟!'],[600,300,150,70,'I CAME TO TAKE BACK WHAT YOU STOLE.','جئتُ لأستعيد ما سرقتَه مني.'],[210,560,150,80,'…YOU’RE TOO LATE.','…لقد فات الأوان.'],[590,520,140,70,'RUN!','اهرب!'],[580,1000,160,80,'THE GATE IS OPENING!','البوابة تنفتح!']];
-function gray(c){const w=c.width,W=w>>1,H=c.height>>1,d=c.getContext('2d').getImageData(0,0,w,c.height).data,g=new Uint8Array(W*H);
-for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*2*w+x*2)*4;g[y*W+x]=d[i]*.3+d[i+1]*.59+d[i+2]*.11>215?1:0}return{g,W,H}}
-function fit(x,t,w,h,mx){let r;for(let fs=mx;fs>=11;fs--){x.font=`700 ${fs}px ${FF}`;const L=[];let c='';
-for(const s of t.split(/\s+/)){const n=c?c+' '+s:s;if(x.measureText(n).width>w&&c){L.push(c);c=s}else c=n}L.push(c);
-r={L,fs};if(L.length*fs*1.35<=h&&L.every(l=>x.measureText(l).width<=w))return r}return r}
-function put(x,t,cx,cy,w,h,rtl,mx,col){const{L,fs}=fit(x,t,w,h,mx),lh=fs*1.35;x.font=`700 ${fs}px ${FF}`;x.fillStyle=col?col[0]:'#111';x.textAlign='center';x.textBaseline='middle';x.direction=rtl?'rtl':'ltr';
-if(col){x.lineWidth=Math.max(3,fs/6);x.lineJoin='round';x.strokeStyle=col[1]}
-L.forEach((l,i)=>{const yy=cy-(L.length-1)*lh/2+i*lh;if(col)x.strokeText(l,cx,yy);x.fillText(l,cx,yy)})}
-function sampleCanvas(){const c=mk(800,1200),x=c.getContext('2d');x.fillStyle='#fbfaf6';x.fillRect(0,0,800,1200);
-[[30,30,740,380],[30,430,360,420],[410,430,360,420],[30,870,740,300]].forEach(([a,b,w,h],i)=>{x.save();x.beginPath();x.rect(a,b,w,h);x.clip();
-x.fillStyle=`hsl(${210+i*30} 18% 66%)`;x.fillRect(a,b,w,h);x.fillStyle='#0003';for(let k=0;k<140;k++){x.beginPath();x.arc(a+(k*37)%w,b+(k*53)%h,5+k%4*2,0,7);x.fill()}
-x.fillStyle='#14151f';x.beginPath();x.moveTo(a,b+h);x.lineTo(a,b+h*.6);x.lineTo(a+w*.3,b+h*.4);x.lineTo(a+w*.55,b+h*.7);x.lineTo(a+w*.8,b+h*.35);x.lineTo(a+w,b+h*.65);x.lineTo(a+w,b+h);x.fill();x.restore();
-x.lineWidth=6;x.strokeStyle='#0c0d16';x.strokeRect(a,b,w,h)});
-SB.forEach(([cx,cy,rx,ry,t])=>{x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,7);x.fillStyle='#fff';x.fill();x.lineWidth=4;x.strokeStyle='#111';x.stroke();put(x,t,cx,cy,rx*1.45,ry*1.3,0,30)});return c}
-function TR(i,b){if(AI.sample){let m=SB[0],d=1e9;SB.forEach(s=>{const k=Math.hypot(s[0]-(b.x+b.w/2)*2,s[1]-(b.y+b.h/2)*2);if(k<d){d=k;m=s}});return m[5]}return GT[i%GT.length]}
-function rebuild(){const s=AI.src,w=s.width,cl=cp(s),x=cl.getContext('2d'),im=x.getImageData(0,0,w,s.height),d=im.data;
-AI.bubs.forEach(b=>{if(b.rect)return;for(let j=0;j<b.h;j++)for(let i=0;i<b.w;i++)if(b.m[j*b.w+i])for(let u=0;u<2;u++)for(let v=0;v<2;v++){const o=((((b.y+j)*2+v)*w)+(b.x+i)*2+u)*4;d[o]=d[o+1]=d[o+2]=255}});
-x.putImageData(im,0,0);AI.bubs.forEach(b=>{if(b.rect){x.fillStyle='rgb('+b.fc+')';x.fillRect(b.px,b.py,b.pw,b.ph)}});AI.cl=cl;const out=cp(cl),y=out.getContext('2d');
-AI.bubs.forEach(b=>{if(b.t)b.rect?put(y,b.t,b.px+b.pw/2,b.py+b.ph/2,b.pw*.92,b.ph*.9,1,34,b.tc):put(y,b.t,(b.x+b.w/2)*2,(b.y+b.h/2)*2,b.w*1.44,b.h*1.3,1,34)});AI.out=out}
-function show(){const cv=$('#cv');if(!cv||!AI.out)return;const s={o:AI.src,c:AI.cl,f:AI.out}[AI.view];cv.width=s.width;cv.height=s.height;const x=cv.getContext('2d');x.drawImage(s,0,0);
-if(AI.view==='o'){x.strokeStyle='#f2b544';x.fillStyle='#f2b544';x.lineWidth=4;x.setLineDash([12,8]);x.font='700 30px sans-serif';x.textAlign='left';x.textBaseline='alphabetic';AI.bubs.forEach((b,i)=>{const r=b.rect?[b.px,b.py,b.pw,b.ph]:[b.x*2,b.y*2,b.w*2,b.h*2];x.strokeRect(...r);x.fillText(i+1,r[0]+6,r[1]+30)})}}
-function stp(){const e=$('#stp');if(e)e.innerHTML=`<div class="stp">${STP.map((s,i)=>`<span class="${AI.step>i?'ok':AI.step===i&&AI.busy?'go':''}">${AI.step>i?'✓ ':AI.step===i&&AI.busy?'… ':''}${s}</span>`).join('')}</div>`}
-function drawRes(){const r=$('#res');if(!r||!AI.out)return;
-r.innerHTML=`<p class="mu" style="margin-top:8px">الصفحة ${nf(AI.qi+1)} من ${nf(AI.q.length)} · معتمدة ${nf(AI.done.length)}${AI.sk.length?' · متخطّاة '+nf(AI.sk.length):''}</p><div class="seg">${[['o','الأصلية'],['c','بعد التبييض'],['f','النهائية']].map(([v,l])=>`<button data-act="view" data-v="${v}" class="${AI.view===v?'on':''}">${l}</button>`).join('')}</div>
-<div class="cvw"><canvas id="cv" class="${AI.mode==='box'?'bx':''}"></canvas></div><div class="seg">${[['tap','نقر على فقاعة'],['box','رسم مربع']].map(([v,l])=>`<button data-act="md" data-v="${v}" class="${AI.mode===v?'on':''}">${l}</button>`).join('')}</div><p class="mu" style="font-size:13px">${AI.mode==='box'?'ارسم مربعاً بإصبعك فوق الكلمات (يُفضَّل في عرض الأصلية) ليُبيَّض مكانها ويُكتب نص عربي.':'اضغط داخل فقاعة بيضاء فاتت الكشف التلقائي لإضافتها.'}</p>
-<h2>الحوارات المترجمة <small>${nf(AI.bubs.length)} فقاعة، ترجمة تجريبية</small></h2>${AI.last?'<button class="btn g" data-act="undo" style="margin-bottom:10px">تراجع عن آخر إلغاء</button>':''}${AI.bubs.map((b,i)=>`<div class="bb"><span>${nf(i+1)}</span><textarea data-i="${i}" rows="2" dir="rtl">${esc(b.t)}</textarea><button class="btn g" data-act="del" data-i="${i}">إلغاء التبييض</button></div>`).join('')||'<p class="empty">لم تُكتشف فقاعات. اضغط على فقاعة بيضاء في الصورة.</p>'}
-<div class="acts"><button class="btn" data-act="ok">${AI.qi+1<AI.q.length?'اعتماد والتالية':'اعتماد وإنهاء'}</button><button class="btn g" data-act="skip">تخطي</button></div><div class="acts" style="margin-top:8px"><button class="btn g" data-act="dl">تنزيل PNG</button>${AI.done.length?'<button class="btn g" data-act="zip">ZIP للمعتمد</button>':''}</div>
-`;show()}
-async function run(c,smp){if(AI.busy)return;clearTimeout(AI.f);AI.pend=0;Object.assign(AI,{src:c,sample:smp,bubs:[],view:'f',busy:1,step:0,last:null});const r=$('#res');if(r)r.innerHTML='';stp();
-try{AI.g=gray(c);await sl(400);AI.bubs=detect(AI.g);rebuild();AI.step=1;stp();
-await sl(500);AI.bubs.forEach((b,i)=>b.t=TR(i,b));AI.step=2;stp();
-await sl(500);rebuild();AI.step=3;AI.busy=0;stp();drawRes();
-if(!AI.bubs.length)toast('لم تُكتشف فقاعات. اضغط على الفقاعة داخل الصورة لإضافتها.')}
-catch(e){AI.busy=0;stp();toast('تعذّرت معالجة الصورة')}}
-function tap(e){if(AI.mode==='box')return;const cv=e.target,r=cv.getBoundingClientRect(),hx=Math.floor((e.clientX-r.left)/r.width*cv.width/2),hy=Math.floor((e.clientY-r.top)/r.height*cv.height/2),{g,W,H}=AI.g,p=hy*W+hx;
-if(hx>=W||hy>=H||!g[p]){toast('اضغط على منطقة بيضاء داخل الفقاعة');return}
-const f=flood(g,W,H,new Uint8Array(W*H),new Int32Array(W*H),p,30,W*H*.5);
-if(!f.q){toast('لم أستطع تحديد فقاعة هنا');return}
-const s=shape(f,W);if(AI.bubs.some(b=>b.x===s.x&&b.y===s.y&&b.w===s.w)){toast('هذه الفقاعة مضافة بالفعل');return}
-s.t=TR(AI.bubs.length,s);AI.bubs.push(s);rebuild();drawRes()}
-const AD={tab:'c'};
-function admin(){
-if(st.role!=='admin'){app.innerHTML=`<div class="pf"><div class="av">🔒</div><h2 style="justify-content:center;margin:0 0 4px">للمدير فقط</h2><p class="mu">سجّل الدخول كمدير من صفحة حسابي.</p><div class="acts"><a class="btn" href="#/u">صفحة حسابي</a></div></div>`;return}
-app.innerHTML=`<h2 style="margin-top:6px">الإدارة</h2><div class="seg">${[['c','إدارة المحتوى'],['b','أداة التبييض']].map(([v,l])=>`<button data-act="adt" data-v="${v}" class="${AD.tab===v?'on':''}">${l}</button>`).join('')}</div><div id="ap"></div>`;
-if(AD.tab==='b'){$('#ap').innerHTML=`<h2 style="margin-top:6px">أداة الذكاء الاصطناعي <small>للمدير فقط</small></h2><p class="mu">ارفع صفحة بالإنجليزية لتُبيَّض الفقاعات ويُنضَّد حوار عربي مكانها. الكشف والتبييض والتنضيد يعملان فعلاً داخل هاتفك، أما الترجمة فمحاكاة بنصوص تجريبية قابلة للتعديل. وللترجمة الحقيقية نربط خدمة ذكاء اصطناعي من الخادم لاحقاً.</p>
-<div class="acts"><label class="btn"><input type="file" id="fi" accept="image/*" multiple hidden>رفع صفحات</label><button class="btn g" data-act="smp">صفحة تجريبية</button></div><div id="stp"></div><div id="res"></div>`;if(AI.fin)drawFin();else if(AI.src&&AI.out){stp();drawRes()}}else adContent()}
-
-const URLRE=/^https:\/\/[^\s'"()<>]+$/;
-function adContent(){const e=$('#ap');
-if(!FB.on||!FB.user){e.innerHTML='<p class="mu">إدارة المحتوى تعمل بعد ربط Firebase وتسجيل الدخول بحساب المدير.</p>';return}
-const ws=W.filter(w=>w.fid);
-e.innerHTML=`<form id="fw" class="fm"><h3>إضافة عمل جديد</h3><label>العنوان</label><input name="ti" required maxlength="80"><label>التصنيفات (افصل بينها بفاصلة)</label><input name="ge" maxlength="120" placeholder="أكشن، فانتازيا"><label>القصة</label><textarea name="sy" rows="4" required maxlength="2000"></textarea><label>فريق الترجمة</label><input name="tm" required maxlength="60"><label>رابط الغلاف (https)</label><input name="cv" type="url" required dir="ltr" placeholder="https://"><label>لغة العمل</label><select name="lg"><option value="ar">عربي</option><option value="en">إنجليزي (Raw)</option></select><button class="btn">حفظ العمل</button></form>
-<form id="fch" class="fm"><h3>إضافة فصل جديد</h3>${ws.length?`<label>العمل</label><select name="wk">${ws.map(w=>`<option value="${w.fid}">${w.t}</option>`).join('')}</select><label>رقم الفصل</label><input name="nu" type="number" step="any" min="0" required dir="ltr"><label>روابط صفحات الفصل بالترتيب (مسافة أو سطر جديد بين كل رابط)</label><textarea name="pg" rows="6" required dir="ltr" placeholder="https://..."></textarea><p class="mu" style="font-size:12px;margin-bottom:10px">رفع فصل بنفس الرقم يستبدل الفصل القديم.</p><button class="btn">حفظ الفصل</button>`:'<p class="mu">أضف عملاً أولاً ليظهر هنا.</p>'}</form>
-<form id="fe" class="fm"><h3>تعديل أو حذف عمل</h3>${ws.length?`<label>اختر العمل</label><select name="ew"><option value="">اختر…</option>${ws.map(w=>`<option value="${w.fid}">${w.t}</option>`).join('')}</select><div id="ef" hidden><label>العنوان</label><input name="ti" required maxlength="80"><label>التصنيفات (افصل بينها بفاصلة)</label><input name="ge" maxlength="120"><label>القصة</label><textarea name="sy" rows="4" required maxlength="2000"></textarea><label>فريق الترجمة</label><input name="tm" required maxlength="60"><label>رابط الغلاف (https)</label><input name="cv" type="url" required dir="ltr"><label>لغة العمل</label><select name="lg"><option value="ar">عربي</option><option value="en">إنجليزي (Raw)</option></select><button class="btn">حفظ التعديلات</button><button type="button" class="btn red" data-act="dw" style="margin-top:8px">حذف العمل</button></div>`:'<p class="mu">لا توجد أعمال بعد.</p>'}</form>
-<form id="fd" class="fm"><h3>حذف فصل</h3>${ws.length?`<label>العمل</label><select name="wk">${ws.map(w=>`<option value="${w.fid}">${w.t}</option>`).join('')}</select><label>رقم الفصل</label><input name="nu" type="number" step="any" min="0" required dir="ltr"><button class="btn red">حذف الفصل</button>`:'<p class="mu">لا توجد أعمال بعد.</p>'}</form>`}
-A.adt=d=>{AD.tab=d.v;admin()};
-A.dw=async()=>{const f=$('#fe'),w=W.find(x=>x.fid===f.ew.value);if(!w)return;if(!FB.on||!isAdm(FB.user)){toast('هذه العملية للمدير فقط');return}
-if(!confirm('حذف العمل نهائياً مع كل فصوله وصورها؟ لا يمكن التراجع.'))return;
-try{const wr=FB.db.collection('works').doc(w.fid),q=await wr.collection('chapters').get();
-toast('جارٍ حذف الصور…');let bad=await delImgs(q.docs.flatMap(d=>d.data().pages||[]).concat(w.cover?[w.cover]:[]));if(FB.st)bad+=await delDir(FB.st.ref('manga/'+w.fid));
-if(bad){toast('تعذّر حذف '+nf(bad)+' صورة من Storage، فلم يُحذف العمل. حاول مرة أخرى');return}
-for(let i=0;i<q.docs.length;i+=400){const bt=FB.db.batch();q.docs.slice(i,i+400).forEach(d=>bt.delete(d.ref));await bt.commit()}
-await wr.delete();toast('حُذف العمل مع صوره');await FB.load()}
-catch(x){toast(x&&x.code==='permission-denied'?'ليس لديك صلاحية الحذف. راجع قواعد Firestore':'تعذّر الحذف: '+((x&&x.code)||''))}};
-document.addEventListener('change',e=>{const t=e.target;if(t.name!=='ew')return;const f=t.form,w=W.find(x=>x.fid===t.value),d=$('#ef');if(!w||!w.rw){d.hidden=true;return}
-d.hidden=false;f.ti.value=w.rw.t;f.ge.value=w.rw.g.join('، ');f.sy.value=w.rw.s;f.tm.value=w.rw.tm;f.cv.value=w.cover;f.lg.value=w.lang==='en'?'en':'ar'});
-
-document.addEventListener('submit',async e=>{const f=e.target;if(!['fw','fch','fe','fd'].includes(f.id))return;e.preventDefault();
-if(!FB.on||!isAdm(FB.user)){toast('هذه العملية للمدير فقط');return}
-const b=f.querySelector('.btn'),TS=firebase.firestore.FieldValue.serverTimestamp;b.disabled=true;
-try{
-if(f.id==='fw'){const cv=f.cv.value.trim(),t=f.ti.value.trim();if(!t||!URLRE.test(cv)){toast('أدخل العنوان ورابط غلاف يبدأ بـ https');return}
-const hue=[...t].reduce((a,c)=>(a*31+c.charCodeAt(0))%360,7);
-await FB.db.collection('works').add({title:t,genres:f.ge.value.split(/[,،]/).map(x=>x.trim()).filter(Boolean).slice(0,6),story:f.sy.value.trim(),team:f.tm.value.trim(),cover:cv,lang:f.lg.value==='en'?'en':'ar',rating:0,views:0,chapters:0,hue,createdAt:TS(),updatedAt:TS()});
-f.reset();toast('حُفظ العمل');await FB.load()}
-else if(f.id==='fe'){const w=W.find(x=>x.fid===f.ew.value),cv=f.cv.value.trim();if(!w||!URLRE.test(cv)){toast('اختر عملاً وأدخل رابط غلاف يبدأ بـ https');return}
-await FB.db.collection('works').doc(w.fid).update({title:f.ti.value.trim(),genres:f.ge.value.split(/[,،]/).map(x=>x.trim()).filter(Boolean).slice(0,6),story:f.sy.value.trim(),team:f.tm.value.trim(),cover:cv,lang:f.lg.value==='en'?'en':'ar',updatedAt:TS()});toast('حُفظت التعديلات');await FB.load()}
-else if(f.id==='fd'){const w=W.find(x=>x.fid===f.wk.value),num=parseFloat(f.nu.value);if(!w||!(num>=0)){toast('اختر العمل وأدخل رقم الفصل');return}
-const wr=FB.db.collection('works').doc(w.fid),q=await wr.collection('chapters').where('num','==',num).get();
-if(q.empty){toast('لا يوجد فصل بهذا الرقم');return}
-if(!confirm('حذف الفصل '+num+' نهائياً مع صوره؟'))return;
-toast('جارٍ حذف الصور…');const bad=await delImgs(q.docs.flatMap(d=>d.data().pages||[]));
-if(bad){toast('تعذّر حذف '+nf(bad)+' صورة من Storage، فلم يُحذف الفصل. حاول مرة أخرى');return}
-await Promise.all(q.docs.map(d=>d.ref.delete()));
-const rest=await wr.collection('chapters').get();let mx=0;rest.forEach(d=>{mx=Math.max(mx,Math.ceil(+d.data().num||0))});
-await wr.update({chapters:mx,updatedAt:TS()});toast('حُذف الفصل');await FB.load()}
-else{const pg=f.pg.value.split(/\s+/).filter(Boolean),num=parseFloat(f.nu.value),w=W.find(x=>x.fid===f.wk.value);
-if(!w||!(num>=0)||!pg.length){toast('أدخل رقم الفصل وروابط الصفحات');return}
-if(pg.length>300||pg.some(u=>!URLRE.test(u))){toast('كل رابط يجب أن يبدأ بـ https والحد الأقصى ٣٠٠ صفحة');return}
-const wr=FB.db.collection('works').doc(w.fid);
-await wr.collection('chapters').doc(String(num)).set({num,pages:pg,createdAt:TS()});
-await wr.update({chapters:Math.max(w.n||0,Math.ceil(num)),updatedAt:TS()});
-f.reset();toast('حُفظ الفصل');await FB.load()}}
-catch(x){toast(x&&x.code==='permission-denied'?'ليس لديك صلاحية الكتابة. راجع قواعد Firestore':'تعذّر الحفظ: '+((x&&x.code)||''))}
-finally{b.disabled=false}});
-/* ===== طابور المعالجة، التحديد اليدوي، وتنزيل ZIP ===== */
-const nat=(a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true});
-const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return b=>{let c=-1;for(let i=0;i<b.length;i++)c=t[(c^b[i])&255]^(c>>>8);return(c^-1)>>>0}})();
-async function zipOf(fs){const en=new TextEncoder(),P=[],C=[];let off=0;
-for(const f of fs){const d=new Uint8Array(await f.blob.arrayBuffer()),nm=en.encode(f.name),crc=CRC(d),sz=d.length;
-const l=new DataView(new ArrayBuffer(30));l.setUint32(0,0x04034b50,true);l.setUint16(4,20,true);l.setUint16(6,0x0800,true);l.setUint16(12,0x21,true);l.setUint32(14,crc,true);l.setUint32(18,sz,true);l.setUint32(22,sz,true);l.setUint16(26,nm.length,true);
-P.push(l.buffer,nm,d);
-const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(14,0x21,true);c.setUint32(16,crc,true);c.setUint32(20,sz,true);c.setUint32(24,sz,true);c.setUint16(28,nm.length,true);c.setUint32(42,off,true);
-C.push(c.buffer,nm);off+=30+nm.length+sz}
-const cs=C.reduce((a,b)=>a+b.byteLength,0),e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,fs.length,true);e.setUint16(10,fs.length,true);e.setUint32(12,cs,true);e.setUint32(16,off,true);
-return new Blob([...P,...C,e.buffer],{type:'application/zip'})}
-function dlBlob(b,n){const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=n;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000)}
-const pn=d=>String(d.i+1).padStart(3,'0')+'.'+(d.ext||'png');
-const enc=(c,cb)=>c.toBlob(b=>{if(b&&b.type==='image/webp'){cb(b,'webp');return}c.toBlob(j=>cb(j,'jpg'),'image/jpeg',.9)},'image/webp',.85);
-const doneSorted=()=>[...AI.done].sort((a,b)=>a.i-b.i).map(d=>({name:pn(d),blob:d.blob}));
-function loadImg(f){return new Promise(res=>{if(f.getContext){res(f);return}const im=new Image(),u=URL.createObjectURL(f);
-im.onload=()=>{URL.revokeObjectURL(u);if(im.height>5000){toast('«'+f.name+'» طولها '+nf(im.height)+' بكسل (الحد ٥٬٠٠٠). قُصّها ثم ارفعها، وتم تخطيها.');res(null);return}
-const k=Math.min(1,800/im.width),c=mk(Math.round(im.width*k),Math.round(im.height*k));c.getContext('2d').drawImage(im,0,0,c.width,c.height);res(c)};
-im.onerror=()=>{URL.revokeObjectURL(u);toast('تعذّرت قراءة «'+f.name+'»');res(null)};im.src=u})}
-async function openPage(i){const r=$('#res');if(r)r.innerHTML='<p class="empty">جارٍ تحميل الصفحة…</p>';
-while(i<AI.q.length){const c=await loadImg(AI.q[i]);if(c){AI.qi=i;await run(c,!!c.isSample);return}AI.sk.push(AI.q[i].name||'صفحة '+nf(i+1));i++}
-AI.busy=0;const e=$('#stp');if(e)e.innerHTML='';drawFin()}
-function startQueue(fs){if(AI.busy){toast('انتظر انتهاء معالجة الصفحة الحالية');return}
-clearTimeout(AI.f);AI.pend=0;Object.assign(AI,{q:[...fs].sort(nat),qi:0,done:[],sk:[],fin:0});openPage(0)}
-function drawFin(){const r=$('#res');if(!r)return;AI.fin=1;const n=AI.done.length;
-r.innerHTML=`<div class="pf"><div class="av">${n?'✓':'–'}</div><h2 style="justify-content:center;margin:0 0 4px">${n?'اكتملت الدفعة':'لا توجد صفحات معتمدة'}</h2><p class="mu">${nf(n)} صفحة معتمدة${AI.sk.length?' · متخطّاة: '+AI.sk.map(esc).join('، '):''}</p>${n?`<div class="acts"><button class="btn" data-act="zip">تنزيل ZIP</button><button class="btn g" data-act="imgs">تنزيل الصور</button></div>`:''}<p style="margin-top:12px"><button class="lk" data-act="rst">معالجة دفعة جديدة</button></p></div>${pubForm()}`}
-function ringColor(x,y,w,h){const c=AI.src,g=c.getContext('2d');let r=0,gg=0,bb=0,n=0;
-[[x-4,y,3,h],[x+w+1,y,3,h],[x,y-4,w,3],[x,y+h+1,w,3]].forEach(([a,b,cw,ch])=>{a=Math.max(0,Math.min(c.width-1,a));b=Math.max(0,Math.min(c.height-1,b));cw=Math.max(1,Math.min(cw,c.width-a));ch=Math.max(1,Math.min(ch,c.height-b));const d=g.getImageData(a,b,cw,ch).data;for(let i=0;i<d.length;i+=4){r+=d[i];gg+=d[i+1];bb+=d[i+2];n++}});
-return[r/n|0,gg/n|0,bb/n|0]}
-function addBox(b){const x0=Math.max(0,Math.round(Math.min(b.x0,b.x1))),y0=Math.max(0,Math.round(Math.min(b.y0,b.y1))),x1=Math.min(AI.src.width,Math.round(Math.max(b.x0,b.x1))),y1=Math.min(AI.src.height,Math.round(Math.max(b.y0,b.y1)));
-if(x1-x0<16||y1-y0<16){show();return}
-const fc=ringColor(x0,y0,x1-x0,y1-y0),lum=fc[0]*.3+fc[1]*.59+fc[2]*.11;
-const s={x:x0>>1,y:y0>>1,w:(x1-x0)>>1,h:(y1-y0)>>1,m:null,n:0,rect:1,px:x0,py:y0,pw:x1-x0,ph:y1-y0,fc,tc:lum>140?['#111','#fff']:['#fff','#111'],t:''};
-s.t=TR(AI.bubs.length,s);AI.bubs.push(s);rebuild();drawRes()}
-let BX=null;
-document.addEventListener('pointerdown',e=>{if(e.target.id!=='cv'||AI.mode!=='box')return;e.preventDefault();const r=e.target.getBoundingClientRect(),k=e.target.width/r.width;
-BX={cv:e.target,r,k,x0:(e.clientX-r.left)*k,y0:(e.clientY-r.top)*k};BX.x1=BX.x0;BX.y1=BX.y0;try{e.target.setPointerCapture(e.pointerId)}catch(x){}});
-document.addEventListener('pointermove',e=>{if(!BX)return;BX.x1=(e.clientX-BX.r.left)*BX.k;BX.y1=(e.clientY-BX.r.top)*BX.k;cancelAnimationFrame(BX.f);
-BX.f=requestAnimationFrame(()=>{if(!BX)return;show();const x=BX.cv.getContext('2d');x.strokeStyle='#f2b544';x.lineWidth=4;x.setLineDash([10,6]);x.strokeRect(Math.min(BX.x0,BX.x1),Math.min(BX.y0,BX.y1),Math.abs(BX.x1-BX.x0),Math.abs(BX.y1-BX.y0))})});
-document.addEventListener('pointerup',()=>{if(!BX)return;const b=BX;BX=null;cancelAnimationFrame(b.f);addBox(b)});
-A.md=d=>{AI.mode=d.v;drawRes()};
-A.skip=()=>{AI.sk.push('الصفحة '+nf(AI.qi+1));openPage(AI.qi+1)};
-A.ok=()=>{flush();enc(AI.out,(b,e)=>{AI.done.push({i:AI.qi,blob:b,ext:e});toast('اعتُمدت الصفحة');openPage(AI.qi+1)})};
-A.zip=async()=>{if(!AI.done.length)return;toast('جارٍ إنشاء ملف ZIP…');try{dlBlob(await zipOf(doneSorted()),'manga-pages.zip')}catch(e){toast('تعذّر إنشاء الملف')}};
-A.imgs=async()=>{for(const f of doneSorted()){dlBlob(f.blob,f.name);await sl(700)}};
-A.rst=()=>{Object.assign(AI,{src:null,out:null,q:[],qi:0,done:[],sk:[],bubs:[],fin:0});admin()};
-A.smp=()=>{if(AI.busy)return;const c=sampleCanvas();c.isSample=1;clearTimeout(AI.f);AI.pend=0;Object.assign(AI,{q:[c],qi:0,done:[],sk:[],fin:0});openPage(0)};
-const chunk=async(a,n,f)=>{for(let i=0;i<a.length;i+=n)await Promise.all(a.slice(i,i+n).map(f))};
-const isMine=u=>{try{const x=new URL(u);return x.hostname==='firebasestorage.googleapis.com'&&x.pathname.startsWith('/v0/b/'+FB.st.ref().bucket+'/')}catch(e){return false}};
-async function delRef(r){try{await r.delete();return 0}catch(e){return e&&e.code==='storage/object-not-found'?0:1}}
-async function delImgs(urls){if(!FB.st)return 0;let f=0;await chunk([...new Set(urls)].filter(isMine),25,async u=>{try{f+=await delRef(FB.st.refFromURL(u))}catch(e){f++}});return f}
-async function delDir(r){let f=0;const l=await r.listAll();await chunk(l.items,25,async i=>{f+=await delRef(i)});for(const p of l.prefixes)f+=await delDir(p);return f}
-function pubForm(){if(!AI.done.length)return'';
-if(!FB.on||!FB.st||!isAdm(FB.user))return'<p class="mu" style="margin-top:14px;text-align:center">النشر المباشر يتطلب Firebase Storage وتسجيل الدخول بحساب المدير.</p>';
-const ws=W.filter(w=>w.fid);if(!ws.length)return'<p class="mu" style="margin-top:14px;text-align:center">أضف عملاً أولاً من إدارة المحتوى ليظهر هنا.</p>';
-return`<div class="fm" style="margin-top:14px"><h3>نشر الفصل مباشرة</h3>${AI.pubMsg?`<p class="okm">${AI.pubMsg}</p>`:''}<label>العمل</label><select id="pw">${ws.map(w=>`<option value="${w.fid}">${w.t}</option>`).join('')}</select><label>رقم الفصل</label><input id="pn" type="number" step="any" min="0" dir="ltr"><button class="btn" id="pbtn" data-act="pub">نشر الفصل (${nf(AI.done.length)} صفحة)</button><div id="pub" style="margin-top:10px"></div></div>`}
-A.pub=async()=>{if(AI.pubB)return;
-if(!FB.on||!FB.st||!isAdm(FB.user)){toast('النشر للمدير فقط بعد ربط Firebase Storage');return}
-const w=W.find(x=>x.fid===$('#pw').value),num=parseFloat($('#pn').value),fs=doneSorted();
-if(!w||!(num>=0)){toast('اختر العمل وأدخل رقم الفصل');return}
-AI.pubB=1;const TS=firebase.firestore.FieldValue.serverTimestamp,box=$('#pub'),bt=$('#pbtn');if(bt)bt.disabled=true;
-const say=(m,p)=>{if(box)box.innerHTML=`<div class="bar"><i style="width:${p||0}%"></i></div><p class="mu" style="font-size:13px;margin-top:6px">${m}</p>`};
-try{say('جارٍ التحقق من الفصل…');
-const wr=FB.db.collection('works').doc(w.fid),ex=await wr.collection('chapters').where('num','==',num).get();
-if(!ex.empty&&!confirm('الفصل '+num+' موجود بالفعل. هل تريد استبداله؟')){say('أُلغي النشر.');return}
-const base='manga/'+w.fid+'/'+String(num).replace('.','_')+'/',urls=new Array(fs.length),stamp=Date.now(),ups=[];let k=0,nx=0,done=0;
-say('رفع ٠ من '+nf(fs.length),0);
-const worker=async()=>{while(nx<fs.length){const i=nx++,r=FB.st.ref(base+stamp+'_'+fs[i].name);await r.put(fs[i].blob,{contentType:fs[i].blob.type||'image/webp'});ups.push(r);urls[i]=await r.getDownloadURL();k++;say('رفع '+nf(k)+' من '+nf(fs.length),Math.round(k/fs.length*92))}};
-await Promise.all([worker(),worker(),worker()]);
-say('حفظ الفصل في قاعدة البيانات…',95);
-const old=ex.docs.flatMap(d=>d.data().pages||[]);
-await wr.collection('chapters').doc(String(num)).set({num,pages:urls,createdAt:TS()});
-await Promise.all(ex.docs.filter(d=>d.id!==String(num)).map(d=>d.ref.delete()));
-await wr.update({chapters:Math.max(w.n||0,Math.ceil(num)),updatedAt:TS()});
-done=1;let bad=0;if(old.length){say('حذف الصور القديمة…',98);bad=await delImgs(old)}
-AI.pubMsg='✓ نُشر الفصل '+nf(num)+' في «'+w.t+'» ('+nf(fs.length)+' صفحة)'+(bad?' · تعذّر حذف '+nf(bad)+' صورة قديمة':'');toast('نُشر الفصل');
-await FB.load()}
-catch(x){const c=x&&x.code||'';say('',0);if(!done&&ups.length)await chunk(ups,25,delRef);toast(c==='storage/unauthorized'?'ليس لديك صلاحية الرفع. راجع قواعد Storage':c==='permission-denied'?'ليس لديك صلاحية الكتابة. راجع قواعد Firestore':'تعذّر النشر: '+c)}
-finally{AI.pubB=0;const b=$('#pbtn');if(b)b.disabled=false}};
-A.del=d=>{AI.last={b:AI.bubs[+d.i],i:+d.i};AI.bubs.splice(+d.i,1);rebuild();drawRes()};
-A.undo=()=>{if(!AI.last)return;AI.bubs.splice(AI.last.i,0,AI.last.b);AI.last=null;rebuild();drawRes()};
+/* ===== حسابي + المزامنة ===== */
+let SY=0;
+function pushSt(){if(!FB.on||!FB.user||FB.sy!==FB.user.uid)return;FB.db.collection('users').doc(FB.user.uid).set({fav:st.fav,pr:st.pr,ts:st.ts||Date.now()}).catch(()=>{})}
+function syncUp(now){if(!FB.on||!FB.user||FB.sy!==FB.user.uid)return;clearTimeout(SY);SY=setTimeout(pushSt,now?0:8000)}
+async function syncDown(){const u=FB.user;if(!u)return;
+try{const d=await FB.db.collection('users').doc(u.uid).get();if(FB.user!==u)return;const r=d.exists?d.data():null;
+if(r){const rf=Array.isArray(r.fav)?r.fav.filter(k=>typeof k==='string'):[],rp=r.pr&&typeof r.pr==='object'?r.pr:{};
+if(st.sy!==u.uid){st.fav=[...new Set([...rf,...st.fav])];Object.keys(rp).forEach(k=>{const a=st.pr[k],b=rp[k];if(b&&typeof b==='object'&&(!a||(b.t||0)>(a.t||0)))st.pr[k]=b})}
+else if((r.ts||0)>(st.ts||0)){st.fav=rf;st.pr=rp}}
+st.sy=u.uid;FB.sy=u.uid;prune();pushSt();if(/^#\/(u|l|)$/.test(location.hash))route()}catch(e){}}
+function prof(){const u=FB.user,ld=FB.cfg&&!FB.ready;document.title='حسابي | حِبر';
+const clr='<div style="text-align:center;margin-top:14px"><button class="btn g sm" data-act="clr">مسح البيانات المحفوظة</button></div>';
+if(u){const raw=u.displayName||(u.email||'').split('@')[0]||'قارئ',nm=esc(raw),ph=/^https:\/\/[^\s'"()<>]+$/.test(u.photoURL||'')?u.photoURL:'',
+n=ld?'—':nf(st.fav.filter(gw).length),r=ld?'—':nf(Object.keys(st.pr).filter(gw).length);
+app.innerHTML=`<div class="wc">${ph?`<img class="ph" src="${ph}" referrerpolicy="no-referrer" alt="">`:`<div class="ph ini">${esc([...raw][0]||'ق')}</div>`}<h2 class="nm">${nm}</h2><p class="mu" dir="ltr">${esc(u.email||'')}</p><div class="stats"><div><b>${n}</b><span>في المكتبة</span></div><div><b>${r}</b><span>قيد القراءة</span></div></div><button class="btn g" data-act="out" style="width:100%;justify-content:center">تسجيل الخروج</button></div>`+clr}
+else app.innerHTML=`<div class="wc"><div class="wl">حِبر</div><h2 class="nm">أهلاً بك في حِبر</h2><p class="mu">سجّل دخولك لتبقى مكتبتك وتقدّمك معك أينما قرأت.</p><ul class="ft">${['احفظ أعمالك المفضلة في مكتبة واحدة','تابع القراءة من حيث توقفت على أي جهاز','مزامنة تلقائية مع حسابك'].map(t=>`<li><svg class="i" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>${t}</li>`).join('')}</ul><button class="gb" data-act="login"><span class="gg">G</span>المتابعة باستخدام Google</button><p class="fine">نستخدم حسابك لحفظ المفضلة والتقدّم فقط.</p></div>`+clr}
+const bust=u=>u+(u.includes('?')?'&':'?')+'r='+Date.now();
+function resume(p){RSK=1;const ev=['touchstart','wheel','keydown','mousedown'],imgs=[...document.querySelectorAll('.rd img')];let n=0;
+const stop=()=>{RSK=0;ev.forEach(e=>removeEventListener(e,stop))},go=()=>{const h=document.body.scrollHeight-innerHeight;if(h>0)scrollTo(0,h*p/100)},
+done=()=>{go();if(++n>=imgs.length)setTimeout(stop,400)};
+ev.forEach(e=>addEventListener(e,stop,{passive:true}));
+imgs.forEach(im=>{im.loading='eager';if(im.complete&&im.naturalWidth)done();else{im.addEventListener('load',done);im.addEventListener('error',done)}});
+setTimeout(stop,10000)}
+document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG'||!t.dataset||!t.dataset.u||!t.closest('.rd'))return;
+const d=document.createElement('div');d.className='pgerr';d.dataset.u=t.dataset.u;d.innerHTML='<p>تعذّر تحميل الصفحة</p><button class="btn g sm" data-act="rt">إعادة المحاولة</button>';t.replaceWith(d)},true);
+A.rt=(d,b)=>{const c=b.closest('.pgerr');if(!c)return;const im=document.createElement('img');im.alt='';im.dataset.u=c.dataset.u;im.src=bust(c.dataset.u);c.replaceWith(im)};
+A.login=()=>toast('تسجيل الدخول غير متاح في النسخة التجريبية');
+addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')syncUp(true)});
 A.retry=()=>{if(!FB.on){location.reload();return}FB.err=0;FB.ready=0;route();FB.load()};
 A.toast=d=>toast(d.m);
 A.fav=d=>{const id=d.id,i=st.fav.indexOf(id);i<0?st.fav.push(id):st.fav.splice(i,1);save();toast(i<0?'أُضيف إلى مكتبتك':'أُزيل من مكتبتك');detail(id)};
-A.adm=()=>{if(FB.on||!LOCAL)return;st.role='admin';save();tabs();toast('تم الدخول كمدير (تجريبي)');route()};
-A.out=()=>{st.role='';save();tabs();toast('تم تسجيل الخروج');route()};
-A.clr=()=>{if(!confirm('سيُمسح تقدّم القراءة والمكتبة وتسجيل الدخول التجريبي. متابعة؟'))return;try{localStorage.clear()}catch(e){}location.reload()};
-A.view=d=>{flush();AI.view=d.v;drawRes()};
-A.dl=()=>{flush();AI.out.toBlob(b=>{const u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='page-ar.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)})};
+A.clr=()=>{if(!confirm('سيُمسح تقدّم القراءة والمكتبة المحفوظان على هذا الجهاز (تعود من حسابك إن كنتَ مسجّلاً). متابعة؟'))return;try{localStorage.clear()}catch(e){}location.reload()};
 
 document.addEventListener('click',e=>{
-if(e.target.id==='cv'){tap(e);return}
 const l=e.target.closest('a[href^="#"]');if(l){e.preventDefault();go(l.getAttribute('href'));return}
 const b=e.target.closest('[data-act]');if(b&&A[b.dataset.act])A[b.dataset.act](b.dataset,b)});
-document.addEventListener('change',e=>{if(e.target.id==='fi'&&e.target.files.length){startQueue([...e.target.files]);e.target.value=''}else if(e.target.tagName==='TEXTAREA')flush()});
-document.addEventListener('input',e=>{const t=e.target;if(t.tagName==='TEXTAREA'&&t.dataset.i!==undefined&&AI.bubs[+t.dataset.i]){AI.bubs[+t.dataset.i].t=t.value;AI.pend=1;clearTimeout(AI.f);AI.f=setTimeout(flush,400)}});
 addEventListener('hashchange',()=>{if(location.hash!==cur)route()});
 
 /* ===== Firebase (اختياري): ضع بيانات مشروعك هنا. إن بقيت فارغة تعمل البيانات التجريبية ===== */
@@ -488,29 +296,16 @@ FB.load=async()=>{try{const q=await FB.db.collection('works').get(),r=[];
 q.forEach(d=>{const x=d.data();r.push({fid:d.id,t:esc(x.title||''),g:(Array.isArray(x.genres)?x.genres:[]).map(esc),r:+x.rating||0,v:+x.views||0,tm:esc(x.team||''),n:+x.chapters||0,s:esc(x.story||''),h:+x.hue||0,d:x.updatedAt&&x.updatedAt.toMillis?Math.max(0,Math.floor((Date.now()-x.updatedAt.toMillis())/864e5)):+x.daysAgo||0,cover:/^https:\/\/[^\s'"()<>]+$/.test(x.cover||'')?x.cover:'',lang:x.lang==='en'?'en':'ar',rw:{t:x.title||'',g:Array.isArray(x.genres)?x.genres:[],s:x.story||'',tm:x.team||''},ts:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():0})});
 if(!r.length){W.length=0;G.length=0;FB.ch={};prune();FB.ready=1;FB.err=0;route();return}r.sort((a,b)=>a.ts-b.ts||(a.fid<b.fid?-1:1));r.forEach((w,i)=>{w.ix=i;w.id=w.fid});W.length=0;W.push(...r);G.length=0;G.push(...new Set(W.flatMap(w=>w.g)));
 prune();FB.ch={};FB.ready=1;FB.err=0;route()}catch(e){FB.ready=1;if(!W.length)FB.err=1;toast('تعذّر تحميل البيانات من Firebase');route()}};
-const ADMIN_EMAILS=["alphamanga.official@gmail.com"];
-const isAdm=u=>!!(u&&u.emailVerified&&u.email&&ADMIN_EMAILS.some(e=>e.toLowerCase()===u.email.toLowerCase()));
-const LOCAL=/^(localhost|127\.0\.0\.1|)$/.test(location.hostname);
-{const p0=prof;prof=function(){p0();const a=app.querySelector('.acts');
-if(FB.on||!LOCAL){const d=app.querySelector('[data-act="adm"]');if(d)d.remove();const n=[...app.querySelectorAll('p.mu')].pop();if(n&&!n.closest('.pf'))n.remove()}
-if(!a)return;
-if(!FB.on){if(!LOCAL)a.innerHTML='<button class="btn" data-act="toast" data-m="تسجيل الدخول غير مفعّل بعد">تسجيل الدخول بحساب جوجل</button>';return}
-const u=FB.user,ad=st.role==='admin';
-if(u){const h=app.querySelector('.pf h2'),m=app.querySelector('.pf p.mu');if(!ad){if(h)h.textContent='أهلاً '+(u.displayName||'بك');if(m)m.textContent=u.email||''}
-a.innerHTML=(ad?'<a class="btn" href="#/a">لوحة الإدارة</a>':'')+'<button class="btn g" data-act="out">تسجيل الخروج</button>'}
-else a.innerHTML='<button class="btn" data-act="login">تسجيل الدخول بحساب جوجل</button>'}}
 FB.init=()=>{const has=!!(firebaseConfig.apiKey&&firebaseConfig.projectId);if(has){FB.cfg=1;W.length=0;G.length=0}try{
 if(!has)return;if(!window.firebase){FB.ready=1;FB.err=1;return}
-firebase.initializeApp(firebaseConfig);FB.au=firebase.auth();FB.db=firebase.firestore();try{FB.st=firebase.storage()}catch(e){FB.st=null}FB.on=true;st.role='';tabs();
+firebase.initializeApp(firebaseConfig);FB.au=firebase.auth();FB.db=firebase.firestore();FB.on=true;tabs();
 const er=e=>toast('تعذّر تنفيذ العملية: '+(e&&e.code||''));
-A.login=async()=>{FB.fresh=1;const pr=new firebase.auth.GoogleAuthProvider();pr.setCustomParameters({prompt:'select_account'});
+A.login=async()=>{const pr=new firebase.auth.GoogleAuthProvider();pr.setCustomParameters({prompt:'select_account'});
 try{await FB.au.signInWithPopup(pr)}catch(e){const c=e&&e.code;
 if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){try{await FB.au.signInWithRedirect(pr)}catch(x){er(x)}}
 else if(c!=='auth/popup-closed-by-user'&&c!=='auth/cancelled-popup-request')er(e)}};
-A.out=async()=>{try{await FB.au.signOut()}catch(e){er(e)}};
-FB.au.onAuthStateChanged(u=>{FB.user=u;st.role=isAdm(u)?'admin':'';tabs();
-if(st.role==='admin'&&FB.fresh){FB.fresh=0;go('#/a');return}
-if(/^#\/[ua]$/.test(location.hash))route()});
+A.out=async()=>{try{await FB.au.signOut();st.fav=[];st.pr={};st.sy=null;st.ts=0;save(true);toast('تم تسجيل الخروج')}catch(e){er(e)}};
+FB.au.onAuthStateChanged(u=>{FB.user=u;FB.sy=null;clearTimeout(SY);tabs();if(u)syncDown();if(location.hash==='#/u')route()});
 FB.load()}catch(e){FB.on=false;FB.ready=1;FB.err=1}};
 FB.init();tabs();route();
 </script>
